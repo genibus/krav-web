@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin
+Disallow: /asset
+Sitemap: http://www.krav-webdesign.fr/sitemap.xml
