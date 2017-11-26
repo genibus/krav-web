@@ -7,7 +7,7 @@ include 'asset/partie/header.php'; ?>
 <section class="flex-container-v main-content">
 	<div class="flex-item-center txtcenter slogan w50">
 		<img src="asset/img/logo-krav.svg" class="logo" alt="logo" width="40%">
-		<h1 class="graphiste">Graphiste & Webdesigner </h1>
+		<h1 class="graphiste">Graphiste  Webdesigner </h1>
 		<p></p>
 		<div class="grid competence">
 			<div>
