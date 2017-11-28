@@ -19,25 +19,25 @@ include 'asset/partie/header.php'; ?>
 	<article class="container">
 		<div class="row text-center text-light py-4">
 			<div class="col-12 col-md-4">
-				<img src="asset/img/graphic-design.png" alt="design" class="text-white">
+				<img src="asset/img/graphic-design.png" alt="design" class="mb-2">
 				<h2 class="h3">Ergonomie</h2>
 				<p>Définissons ensemble une identité visuelle qui vous ressemble.</p>
 			</div>
 			<div class="col-12 col-md-4">
-				<img src="asset/img/vector.png" alt="sketching">
+				<img src="asset/img/vector.png" alt="sketching" class="mb-2">
 				<h2 class="h3">Précision</h2>
 				<p>Mettez en avant vos évenements ou votre entreprise.</p>
 			</div>
 			<div class="col-12 col-md-4">
-				<img src="asset/img/rocket.png" alt="palette">
+				<img src="asset/img/rocket.png" alt="palette" class="mb-2">
 				<h2 class="h3">Optimisation</h2>
 				<p>Nous travaillons aussi bien en ligne qu'en impression.</p>
 			</div>
 		</div>
 	</article>
 </section>
-<section class="bg-light">
-	<article class="container">
+<section class="bg-light" id="portfolio">
+	<article class="container py-5">
 		<div class="d-flex flex-row justify-content-center navbar py-2">
 			<a href="#" class="p-2">Graphisme</a>
 			<a href="#" class="p-2">Web</a>
@@ -45,6 +45,33 @@ include 'asset/partie/header.php'; ?>
 		<div class="row py-5">
 			<div class="col-12">
 				<h1 class="text-center">Insert Galerie</h1>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-10">
+				<div class="card mb-4" style="height: 300px;">
+					<div class="card-body">
+						<h2>Projet 1</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-10">
+				<div class="card mb-4" style="height: 300px;">
+					<div class="card-body">
+						<h2>Projet 2</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-10">
+				<div class="card mb-4" style="height: 300px;">
+					<div class="card-body">
+						<h2>Projet 3</h2>
+					</div>
+				</div>
 			</div>
 		</div>
 	</article>
@@ -57,12 +84,11 @@ include 'asset/partie/header.php'; ?>
 		<a href="#" class="btn btn-outline-primary">En savoir plus</a>
 	</article>
 	<article class="col-12 col-md bg-primary">
-
+		<h2 class="text-light">Random image</h2>
 	</article>
 	</div>
 </section>
 
 <?php
-include 'asset/partie/form.php';
 include 'asset/partie/footer.php';
 ?>
