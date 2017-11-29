@@ -71,9 +71,9 @@ $config = array(
 	|--------------------------------------------------------------------------
 	|
 	| with start and final /
-	|
+	|  ONLINE URL '/asset/img/'
 	*/
-	'upload_dir' => '/asset/img/',
+	'upload_dir' => '/krav-webdesign/asset/img/',
 	/*
 	|--------------------------------------------------------------------------
 	| relative path from filemanager folder to upload folder

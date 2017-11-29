@@ -1,7 +1,7 @@
 <title><?= $title; ?></title>
 	<meta name="description" content="<?= $description; ?>"/>
 	<meta name="viewport" content="initial-scale=1"/>
-<link rel="stylesheet" href="<?= RACINE ?>asset/css/style.css">
+<link rel="stylesheet" href="<?= RACINE ?>/asset/css/style.css">
 </head>
 <body>
 <header>

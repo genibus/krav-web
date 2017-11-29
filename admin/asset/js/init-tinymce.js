@@ -18,7 +18,7 @@ tinymce.init({
     toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
     image_advtab: true,
     //  CHANGER L'URL POUR VERSION EN LIGNE
-    external_filemanager_path: "/admin/asset/js/tinymce/filemanager/",
+    external_filemanager_path: "asset/js/tinymce/filemanager/",
     filemanager_title: "Responsive Filemanager",
     external_plugins: { "filemanager": "filemanager/plugin.min.js" }
 });
