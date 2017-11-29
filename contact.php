@@ -24,8 +24,8 @@ include 'asset/partie/header.php'; ?>
 			</div>
 		</div>
     <div class="row pt-3">
-      <div class="col-12 text-center d-none">
-        <a href="<?= RACINE ?>">Retour à la page d'accueil</a>
+      <div class="col-12 text-center">
+        <a href="<?= RACINE ?>" >Retour à la page d'accueil</a>
       </div>
     </div>
 	</article>

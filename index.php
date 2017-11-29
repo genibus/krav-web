@@ -38,17 +38,19 @@ include 'asset/partie/header.php'; ?>
 </section>
 <section class="bg-light" id="portfolio">
 	<article class="container py-5">
-		<div class="d-flex flex-row justify-content-center navbar py-2">
-			<a href="#" class="p-2">Graphisme</a>
-			<a href="#" class="p-2">Web</a>
+		<div class="row justify-content-center py-2">
+			<div class="col-12 text-center">
+				<a href="#" class="p-2">Graphisme</a>
+				<a href="#" class="p-2">Web</a>
+			</div>
 		</div>
-		<div class="row py-5">
+		<div class="row py-3">
 			<div class="col-12">
-				<h1 class="text-center">Insert Galerie</h1>
+				<h1 class="text-center">My work</h1>
 			</div>
 		</div>
 		<div class="row justify-content-center">
-			<div class="col-10">
+			<div class="col-12 col-md-10">
 				<div class="card mb-4" style="height: 300px;">
 					<div class="card-body">
 						<h2>Projet 1</h2>
@@ -57,7 +59,7 @@ include 'asset/partie/header.php'; ?>
 			</div>
 		</div>
 		<div class="row justify-content-center">
-			<div class="col-10">
+			<div class="col-12 col-md-10">
 				<div class="card mb-4" style="height: 300px;">
 					<div class="card-body">
 						<h2>Projet 2</h2>
@@ -66,7 +68,7 @@ include 'asset/partie/header.php'; ?>
 			</div>
 		</div>
 		<div class="row justify-content-center">
-			<div class="col-10">
+			<div class="col-12 col-md-10">
 				<div class="card mb-4" style="height: 300px;">
 					<div class="card-body">
 						<h2>Projet 3</h2>
