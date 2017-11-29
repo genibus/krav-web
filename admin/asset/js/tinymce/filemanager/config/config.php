@@ -73,7 +73,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '/www.krav-webdesign.fr/asset/img/',
+	'upload_dir' => '/asset/img/',
 	/*
 	|--------------------------------------------------------------------------
 	| relative path from filemanager folder to upload folder

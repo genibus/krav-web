@@ -1,3 +1,4 @@
+<?php include_once 'asset/lib/include.php';?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
