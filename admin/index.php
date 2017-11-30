@@ -57,57 +57,54 @@ $description = "description";
 
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>
-	<h1>Gestion de vos articles</h1>
-	<a href="article_create.php" class="btn btn-success">Ajouter un article</a>
-
-
-
-	<div class="row">
-		<table class="">
-			<!-- début tableau affichage des articles -->
-				<tr>
-					<th>ID article</th>
-					<th>ID catégorie</th>
-					<th>Nom de la catégorie</th>
-					<th>Nom article</th>
-					<th>Url</th>
-					<th>Contenu de l'article</th>
-					<th>Meta description</th>					
-				</tr>	
-			<?php foreach($affiche_categorie as $ligne_articles):?><!-- on affiche toutes les données de la table articles -->
-				<tr>		
-					<td><?= $ligne_articles['id_work']; ?></td>
-					<td><?= $ligne_articles['id_category']; ?></td>
-					<td><?= $ligne_articles['category_name']; ?></td>
-					<td><?= $ligne_articles['work_name']; ?></td>
-					<td><?= $ligne_articles['work_url']; ?></td>
-					<td><?= htmlspecialchars(substr($ligne_articles['content'], 0, 50)); ?></td>
-					<td><?= htmlspecialchars(substr($ligne_articles['meta_description'], 0, 50)); ?></td>
-					<!-- Le "?" dans le href ci-dessous permet de récupérer 'supprimer' avec la méthode GET-->
-					<td><a href="article_edit.php?modifier=<?= $ligne_articles['id_work']; ?>" class="">Modifier</a></td>
-					<td><a href="?supprimer=<?= $ligne_articles['id_work']; ?>" class="" onclick="return confirm('Êtes vous sur de bien vouloir supprimer cet article?')">Supprimer</a></td>
-				</tr>	
-			<?php endforeach ;?>
-			<!-- fin tableau affichage articles -->
-		</table>
-			<ul class="pagination justify-content-center">
-<?php 
-	for($i = 1 ; $i <= $nbPage ; $i++ )
-	{
-		if($i == $startPage)
+		<h1>Gestion de vos articles</h1>
+		<a href="article_create.php" class="btn btn-success">Ajouter un article</a>
+			<table class="table mt-5 table-hover">
+				<!-- début tableau affichage des articles -->
+				<thead class="thead-light">
+					<tr>
+						<th>ID article</th>
+						<th>ID catégorie</th>
+						<th>Nom de la catégorie</th>
+						<th>Nom article</th>
+						<th>Url</th>
+						<th>Contenu de l'article</th>
+						<th>Meta description</th>					
+					</tr>
+				</thead>	
+				<?php foreach($affiche_categorie as $ligne_articles):?><!-- on affiche toutes les données de la table articles -->
+					<tr>		
+						<td><?= $ligne_articles['id_work']; ?></td>
+						<td><?= $ligne_articles['id_category']; ?></td>
+						<td><?= $ligne_articles['category_name']; ?></td>
+						<td><?= $ligne_articles['work_name']; ?></td>
+						<td><?= $ligne_articles['work_url']; ?></td>
+						<td><?= htmlspecialchars(substr($ligne_articles['content'], 0, 50)); ?></td>
+						<td><?= htmlspecialchars(substr($ligne_articles['meta_description'], 0, 50)); ?></td>
+						<!-- Le "?" dans le href ci-dessous permet de récupérer 'supprimer' avec la méthode GET-->
+						<td><a href="article_edit.php?modifier=<?= $ligne_articles['id_work']; ?>" class="">Modifier</a></td>
+						<td><a href="?supprimer=<?= $ligne_articles['id_work']; ?>" class="" onclick="return confirm('Êtes vous sur de bien vouloir supprimer cet article?')">Supprimer</a></td>
+					</tr>	
+				<?php endforeach ;?>
+				<!-- fin tableau affichage articles -->
+			</table>
+				<ul class="pagination center">
+	<?php 
+		for($i = 1 ; $i <= $nbPage ; $i++ )
 		{
-			echo " <li class=''><a>$i</a></li>";
+			if($i == $startPage)
+			{
+				echo " <li class=''><a>$i</a></li>";
+			}
+			else
+			{
+				echo "<li class=''><a href='index.php?p=$i' class=''>$i</a>";
+			}
 		}
-		else
-		{
-			echo "<li class=''><a href='index.php?p=$i' class=''>$i</a>";
-		}
-	}
 
-?>
- </ul>
-	</div>
-
+	?>
+	 		</ul>
+	 	</main>
+	 </div>
 </div>
-	<?php
-	include_once 'asset/part/footer_article.php'; 
+<?php include_once 'asset/part/footer_article.php';

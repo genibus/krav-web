@@ -15,16 +15,16 @@
 			<div class="row">
 				<header class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
 						<nav class="nav nav-pills flex-column nav-admin mt-5">
-							<div class="nav-item mt-5">
+							<div class="nav-item mt-5 text-center">
 								<a href="categories.php" class="nav-link nav-link-custom">Gestion des catégories</a>
 							</div>
-							<div class="nav-item mt-5">
+							<div class="nav-item mt-5 text-center">
 								<a href='index.php' class="nav-link nav-link-custom">Gestion des articles</a>
 							</div>
-							<div class="nav-item mt-5">
+							<div class="nav-item mt-5 text-center">
 								<a href='article_create.php' class="nav-link nav-link-custom">Créer un article</a>
 							</div>
-							<div class="nav-item mt-5">
+							<div class="nav-item mt-5 text-center">
 								<a href='logout.php' class="nav-link nav-link-custom">Se deconnecter</a>
 							</div>
 						</nav>

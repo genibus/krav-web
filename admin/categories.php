@@ -139,4 +139,4 @@ include_once 'asset/part/header.php'; ?>
 		</main>
 	</div>
 </div>
-<?php include_once 'asset/part/footer.php'; 
+<?php include_once 'asset/part/footer.php';
