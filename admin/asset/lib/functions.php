@@ -6,13 +6,13 @@ function baliseForm($id, $nomLabel, $balise, $type = "")
 	$value = isset($_POST[$id]) ? $_POST[$id] : '';	
 	if($balise == 'textarea')
 	{		
-		return "<textarea name='$id' id='$id' class='validate'>$value</textarea>
-				<label for='$id' class='active'>$nomLabel</label>";	
+		return "<label for='$id'>$nomLabel</label>
+				<textarea name='$id' id='$id' class='form-control'>$value</textarea>";	
 	}
 	elseif($balise == 'input')
 	{		
-		return "<input type='$type' name='$id' id='$id' value='$value' class='validate'>
-				<label for='$id' class='active'>$nomLabel</label>";	
+		return "<label for='$id'>$nomLabel</label>
+				<input type='$type' name='$id' id='$id' value='$value' class='form-control'>";	
 	}
 }
 
@@ -22,7 +22,7 @@ function flash()
 	{
 		extract($_SESSION['flash']);
 		unset($_SESSION['flash']);
-		return "<div class='card-panel $color'><p class='white-text'>$msg</p></div>";
+		return "<div class='alert alert-$color'><p>$msg</p></div>";
 	}
 }
 

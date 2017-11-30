@@ -1,4 +1,4 @@
-<?php include_once 'asset/lib/include.php';?>
+<?php include_once 'asset/lib/include.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,20 +6,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="noindex, nofollow">
-	<title>Administration</title>
-	<!-- <link rel="stylesheet" href="asset/css/style.css"> -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<meta name="description" content="<?= $description ?>">
+	<title><?= $title ?></title>
+	<link rel="stylesheet" href="../asset/css/style.css">
 </head>
 <body>
-	<header>    
-		<nav>
-			<div class="nav-wrapper blue-grey">				
-			<ul id="nav-mobile" class="right hide-on-med-and-down blue-grey">
-					<li><a href='categories.php'>Gestion des catégories</a></li>
-					<li><a href='index.php'>Gestion des articles</a></li>
-					<li><a href='logout.php'>Se deconnecter</a></li>
-				</ul>
-			</div>
-		</nav>
-		<?= flash(); ?>
-	</header>
+	<div class="container-fluid">
+			<div class="row">
+				<header class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+						<nav class="nav nav-pills flex-column nav-admin mt-5">
+							<div class="nav-item mt-5">
+								<a href="categories.php" class="nav-link nav-link-custom">Gestion des catégories</a>
+							</div>
+							<div class="nav-item mt-5">
+								<a href='index.php' class="nav-link nav-link-custom">Gestion des articles</a>
+							</div>
+							<div class="nav-item mt-5">
+								<a href='article_create.php' class="nav-link nav-link-custom">Créer un article</a>
+							</div>
+							<div class="nav-item mt-5">
+								<a href='logout.php' class="nav-link nav-link-custom">Se deconnecter</a>
+							</div>
+						</nav>
+				</header>
+	<main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">	
+		<?= flash(); ?>		

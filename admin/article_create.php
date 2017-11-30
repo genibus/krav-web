@@ -1,7 +1,7 @@
 <?php 
 include_once 'asset/lib/include.php';
 
-$ajout_btn = '<input type="submit" value="Ajouter un article" class="waves-effect waves-light btn green accent-3">';
+$ajout_btn = '<input type="submit" value="Ajouter un article" class="btn btn-success">';
 
 // requete SELECT vers la table categories pour récupérer les informations en base de données
 $requete_categorie = $db->query('SELECT * FROM categories');
@@ -17,7 +17,7 @@ if($_POST) // Si le formulaire est valide
 		// si l'un des champs est vide 
 	if(empty($nom) || empty($url) || empty($contenu)) // on affiche un message d'erreur
 	{
-		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'red');
+		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'danger');
 		header('Location:article_create.php');
 		die();
 	}
@@ -40,80 +40,68 @@ if($_POST) // Si le formulaire est valide
 		include_once 'asset/lib/upload_file.php';
 		$db->commit();
 		header('Location:index.php');	
-		setFlash('L\'article <b>' . $nom . '</b> a été ajoutée', 'green');
+		setFlash('L\'article <b>' . $nom . '</b> a été ajoutée', 'success');
 		die();
 	}
 	else
 	{
 		header('Location:article_create.php');	
-		setFlash('Une image est obligatoire pour ajouter un article', 'orange');
+		setFlash('Une image est obligatoire pour ajouter un article', 'warning');
 		die();
 	}		
 }
+// title et description
+$title = "titre";
+$description = "description";
 
 // On inclut le fichier header.php
-include_once 'asset/part/header.php'; ?> 
-<div class="container">
-	<h1>Gestion de vos articles</h1>
+include_once 'asset/part/header.php'; ?>
+			<h1>Gestion de vos articles</h1>
 
 
-	<!-- Affichage du formulaire -->		
-	<form action="" method="post" enctype="multipart/form-data" class="col s12">
+			<!-- Affichage du formulaire -->		
+			<form action="" method="post" enctype="multipart/form-data">
 
-		<div class="row">
-			<div class="input-field col s12">	
-				<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
-			</div>
-		</div>
-		<div class="row">
-			<label for="category">Nom catégorie</label>
+				<div class="form-group">
+					<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
+				</div>
+				<div class="form-group">				
+					<label for="category">Nom catégorie</label>
+					<select name="category" class="form-control" id="category" value="" selected="">
+						<option value="" disabled selected>Choisissez la catégorie</option>
+							<?php 
+							foreach($requete_categorie as $nom_categorie): ?>
+							<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
+						<option value="<?= $nom_categorie['id_category']; ?>"> <?= $nom_categorie['category_name']; ?> </option>
+							<?php endforeach ;?>
+					</select>
+				</div>
 
-			<select name="category" class='browser-default' id="category" value="" selected="">
-			<option value="" disabled selected>Choisissez la catégorie</option>
-				<?php 
-				foreach($requete_categorie as $nom_categorie): ?>
-				<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
-				<option value="<?= $nom_categorie['id_category']; ?>"> <?= $nom_categorie['category_name']; ?> </option>
-			<?php endforeach ;?>
-		</select>
-	</div>
+				<!-- Récupération de la fonction baliseForm -->
+				<div class="form-group">
+					<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
+				</div>
+				<div class="form-group">
+					<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>
+				</div>
+				<div class="form-group">
+					<?= baliseForm('meta_description', 'meta description de l\'article', 'input', 'text'); ?>
+				</div>
 
-	<!-- Récupération de la fonction baliseForm -->
-	<div class="row">
-		<div class="input-field col s12">
-			<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
-		</div>
-	</div>
-	<div class="row">
-		<div class="input-field col s12">
-			<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>
-		</div>
-	</div>
-	<div class="row">
-		<div class="input-field col s12">
-			<?= baliseForm('meta_description', 'meta description de l\'article', 'input', 'text'); ?>
-		</div>
-	</div>
+				<div class="form-group">
+					<span>Upload d'image</span>
+					<input type="file" name="image" class="form-control-file">
+				</div>
+				
+				<div class="form-group">
+					<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
+				</div>
 
-	<div class="file-field input-field">
-		<div class="btn waves-effect waves-light btn orange accent-5">
-			<span>Upload d'image</span>
-			<input type="file" name="image">
-			
-		</div>
+				<div class="form-group">
+					<?= $ajout_btn; ?>
+				</div>
+			</form>
+		</main>
 	</div>
-	
-	<div class="row">
-		<div class="input-field col s12">
-			<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="input-field col s12">
-			<?= $ajout_btn; ?>
-		</div>
-	</div>
-</form>
-</div>	
+</div>
 <?php include_once 'asset/part/footer_article.php'; 

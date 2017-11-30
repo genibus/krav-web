@@ -14,7 +14,7 @@ if($_POST) // Si le formulaire est validé
 		// si l'un des champs est vide 
 	if(empty($nom) || empty($url) || empty($contenu))// on affiche un message d'erreur
 	{
-		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'red');
+		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'danger');
 		header('Location:article_edit.php');
 		die();
 	}
@@ -32,7 +32,7 @@ if($_POST) // Si le formulaire est validé
 	include_once 'asset/lib/upload_file.php';		
 	$db->commit();
 	header('Location:index.php');
-	setFlash('L\'article a été modifiée', 'blue');
+	setFlash('L\'article a été modifiée', 'primary');
 	die();
 }
 
@@ -50,82 +50,78 @@ $requete_categorie = $requete->fetchAll();
 
 if($select_articles->rowCount() == 0)
 {
-	setFlash('L\'url saisie n\'existe pas', 'orange');
+	setFlash('L\'url saisie n\'existe pas', 'warning');
 	header('Location:article_edit.php');
 	die();
 }
+
+// title et description
+$title = "titre";
+$description = "description";
+
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>
-<div class="container">
-		<h1>Gestion de vos articles</h1>
-
-
-	<div class="row">			
-		<form action="" method="post" enctype="multipart/form-data" class="col s12">
-				<div class="input-field col s12">
-					<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
-				</div>
-			<div class="row">
-				<label for="category">Nom catégorie</label>
-					<select name="category" class='browser-default' id="category" value="" selected="">
-						<option value="" disabled selected>Choisissez la catégorie</option>
-						<?php
-						foreach($requete_categorie as $nom_categorie):
-							$selected = '';
-						
-						if($nom_categorie['id_category'] == $_POST['id_category']){
-							$selected = 'selected ="selected"';
-						}
-						?>
-						<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
-						<option value="<?= $nom_categorie['id_category']; ?>" <?= $selected ;?> > <?= $nom_categorie['category_name'];?></option>
-					<?php endforeach ;?>
-					</select>
-			</div>
-
-							<!-- Récupération de la fonction input 			
-							on ajoute chaque donnée dans l'input -->
-			<div class="row">
-				<div class="input-field col s12">
-					<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>	
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<?= baliseForm('meta_description', 'meta-description de l\'article','input', 'text'); ?>	
-				</div>
-			</div> 
-	</div>	
-		<div class="row">		
-			<div class="input-field col s6">		
-				<img src="../asset/img/imageUpload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="350">													
-			</div>						
-			<div class="input-field col s6">
-				<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
-			</div>
-			<div class="input-field col s6">
-				<div class="file-field input-field">
-					<div class="btn waves-effect waves-light btn orange accent-5">
-						<span>Upload d'image</span>
-						<input type="file" name="image">
+			<h1>Gestion de vos articles</h1>			
+				<form action="" method="post" enctype="multipart/form-data" class="col s12">
+						<div class="input-field col s12">
+							<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
+						</div>
+					<div class="row">
+						<label for="category">Nom catégorie</label>
+							<select name="category" class='browser-default' id="category" value="" selected="">
+								<option value="" disabled selected>Choisissez la catégorie</option>
+								<?php
+								foreach($requete_categorie as $nom_categorie):
+									$selected = '';
+								
+								if($nom_categorie['id_category'] == $_POST['id_category']){
+									$selected = 'selected ="selected"';
+								}
+								?>
+								<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
+								<option value="<?= $nom_categorie['id_category']; ?>" <?= $selected ;?> > <?= $nom_categorie['category_name'];?></option>
+							<?php endforeach ;?>
+							</select>
 					</div>
-					<div class="file-path-wrapper">
-						<input class="file-path validate" type="text" value="<?= $_POST['nom_image'];?>">
+
+									<!-- Récupération de la fonction input 			
+									on ajoute chaque donnée dans l'input -->
+					<div class="form-group">
+							<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
 					</div>
-				</div>
-			</div>
-			<div class="col s3">
-			<a href="index.php" class="waves-effect waves-light btn blue">Retour aux articles</a>
-			</div>
-			<div class="col s3">
-			<input type="submit" value="Valider" class="waves-effect waves-light btn green">
-			</div>
-		</div>	
-		</form>
+					<div class="form-group">
+							<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>
+					</div>
+					<div class="form-group">
+							<?= baliseForm('meta_description', 'meta-description de l\'article','input', 'text'); ?>
+					</div> 
+				<div class="form-group">		
+					<div class="input-field col s6">		
+						<img src="../asset/img/imageUpload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="350">													
+					</div>						
+					<div class="form-group">
+						<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
+					</div>
+					<div class="form-group">
+						<div class="file-field">
+							<div class="btn btn-primary">
+								<span>Upload d'image</span>
+								<input type="file" name="image">
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text" value="<?= $_POST['nom_image'];?>">
+							</div>
+						</div>
+					</div>
+					<div class="col s3">
+					<a href="index.php" class="waves-effect waves-light btn blue">Retour aux articles</a>
+					</div>
+					<div class="col s3">
+					<input type="submit" value="Valider" class="waves-effect waves-light btn green">
+					</div>
+				</div>	
+				</form>
+		</main>
+	</div>
 </div>
 <?php include_once 'asset/part/footer_article.php'; 
