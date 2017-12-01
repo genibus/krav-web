@@ -18,8 +18,8 @@ if($_POST) // Si le formulaire est valide
 	if(empty($nom) || empty($url) || empty($contenu)) // on affiche un message d'erreur
 	{
 		// ajouter récupération données déjà entrées
-		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'danger');
 		header('Location:article_create.php');
+		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'danger');
 		die();
 	}
 			// TRAITEMENT POUR AJOUTER UN ARTICLE
@@ -41,7 +41,7 @@ if($_POST) // Si le formulaire est valide
 		include_once 'asset/lib/upload_file.php';
 		$db->commit();
 		header('Location:index.php');	
-		setFlash('L\'article <b>' . $nom . '</b> a été ajoutée', 'success');
+		setFlash('L\'article <b>' . $nom . '</b> a été ajoutée', 'info');
 		die();
 	}
 	else

@@ -32,7 +32,7 @@ if($_POST) // Si le formulaire est validé
 	include_once 'asset/lib/upload_file.php';		
 	$db->commit();
 	header('Location:index.php');
-	setFlash('L\'article a été modifiée', 'primary');
+	setFlash('L\'article a été modifiée', 'info');
 	die();
 }
 
@@ -60,7 +60,7 @@ $title = "titre";
 $description = "description";
 
 // On inclut le fichier header.php
-include_once 'asset/part/header.php'; ?>
+	include_once 'asset/part/header.php'; ?>
 			<h1 class="text-center">Gestion de vos articles</h1>			
 				<form action="" method="post" enctype="multipart/form-data">
 					<div class="form-group">

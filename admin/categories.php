@@ -35,25 +35,13 @@ if($_POST) // Si le formulaire est validé
 			$req = $db->prepare('INSERT INTO categories SET category_name = :category_name, category_url = :category_url'); 
 			$req->bindParam(':category_name', $name, PDO::PARAM_STR); // les élements suivants
 			$req->bindParam(':category_url', $url, PDO::PARAM_STR);
-			$req->execute() or die(print_r($db->errorInfo()));
+			$req->execute() or die(print_r($db->errorInfo()));			
+			setFlash('La catégorie <b>' . $name . '</b> a été ajoutée', 'info');	
 			header('Location:categories.php?afficher');	
-			setFlash('La catégorie <b>' . $name . '</b> a été ajoutée', 'success');	
 			die();					
 		}
 		
 	}				
-}
-
-
-
-//  Traitement modification href et class de la balise <a>
-if(!isset($_GET['afficher']))
-{
-	$affiche_btn = '<a href="?afficher" class="btn btn-primary">Afficher les catégories</a>';
-}
-else
-{
-	$affiche_btn ='<a href="categories.php" class="btn btn-primary">Masquer les catégories</a>';
 }
 
 // TRAITEMENT POUR AFFICHER LA CATEGORIE A MODIFIER DANS LES CHAMPS INPUT
@@ -71,12 +59,12 @@ if(isset($_GET['modifier']))
 	}
 
 	$_POST = $categories_modifier->fetch();
-	$ajout_btn = '<input type="submit" value="Valider" class="btn btn-primary">';
+	$ajout_btn = '<input type="submit" value="Valider" class="btn btn-primary btn-lg">';
 
 }
 else
 {
-	$ajout_btn = '<input type="submit" value="Ajouter une catégorie" class="btn btn-primary">';
+	$ajout_btn = '<input type="submit" value="Ajouter une catégorie" class="btn btn-primary btn-lg">';
 }	
 
 
@@ -91,7 +79,7 @@ if(isset($_GET['supprimer']))
 	$requete_suppression = $db->prepare("DELETE FROM categories WHERE id_category = :id_category");
 	$requete_suppression->bindParam(':id_category', $id_category);
 	$requete_suppression->execute() or die(print_r($db->errorInfo()));	
-	setFlash("La catégorie <strong>$category_name_delete</strong> numéro <strong>$id_category_delete</strong> a bien été supprimée", "primary");
+	setFlash("La catégorie <strong>$category_name_delete</strong> numéro <strong>$id_category_delete</strong> a bien été supprimée", "info");
 	header('Location:categories.php?afficher');
 	die();
 }
@@ -117,28 +105,27 @@ include_once 'asset/part/header.php'; ?>
 							// récupération en db
 					$affiche_categories = $liste_categories->fetchAll(); 
 				?>	
-				<table class="table mt-5 table-hover">
+				<table class="table mt-1 mb-1 bg-light">
 					<!-- début tableau affichage catégories -->
-					<thead class="thead-light">
 						<tr>
-							<th scope="col">ID de la catégorie</th>
-							<th scope="col">Nom de la catégorie</th>
-							<th scope="col">Nom de l'url de la catégorie</th>
+							<th scope="col" class="text-center">ID de la catégorie</th>
+							<th scope="col" class="text-center">Nom de la catégorie</th>
+							<th scope="col" class="text-center">Nom de l'url de la catégorie</th>
 						</tr>
-					</thead>
+							<tbody class="table-dark">	
 					<?php foreach($affiche_categories as $ligne_categories):?>
 						<!-- on affiche toutes les données de la table catégories -->
 						<tr>	
-							<tbody>	
-								<td scope="col"><?= $ligne_categories['id_category']; ?></td>
-								<td scope="col"><?= $ligne_categories['category_name']; ?></td>
-								<td scope="col"><?= $ligne_categories['category_url']; ?></td>
-								<td scope="col"><a href="?modifier=<?= $ligne_categories['id_category']; ?>" class="btn btn-warning" >modifier</a></td>
-								<td scope="col"><a href="?supprimer=<?= $ligne_categories['id_category']; ?>" class="btn btn-danger" onclick="return confirm('Voulez-vous supprimer cette catégorie?')">Supprimer</a></td>	
-							</tbody>	
+								<td scope="col" class="text-center"><?= $ligne_categories['id_category']; ?></td>
+								<td scope="col" class="text-center"><?= $ligne_categories['category_name']; ?></td>
+								<td scope="col" class="text-center"><?= $ligne_categories['category_url']; ?></td>
+								<td scope="col"><a href="?modifier=<?= $ligne_categories['id_category']; ?>" class="btn btn-info btn-lg btn-block" >modifier</a></td>
+								<td scope="col"><a href="?supprimer=<?= $ligne_categories['id_category']; ?>" class="btn btn-danger btn-lg btn-block" onclick="return confirm('Voulez-vous supprimer cette catégorie?')">Supprimer</a></td>
 						</tr>
 
 					<?php endforeach; ?>
+
+							</tbody>	
 				</table>
 		</main>
 	</div>

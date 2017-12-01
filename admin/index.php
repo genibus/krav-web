@@ -49,7 +49,7 @@ if(isset($_GET['supprimer']))
 	$requete_suppression = $db->prepare("DELETE FROM works WHERE id_work = :id_work");
 	$requete_suppression->bindParam(':id_work', $id_work);
 	$requete_suppression->execute() or die(print_r($db->errorInfo()));
-	setFlash("L'article <strong>$work_name_delete</strong> numéro <strong>$id_work_delete</strong> a bien été supprimé", "primary");
+	setFlash("L'article <strong>$work_name_delete</strong> numéro <strong>$id_work_delete</strong> a bien été supprimé", "info");
 	header('Location:index.php');
 	die();
 }
@@ -66,34 +66,34 @@ if(isset($msg_suppr)){
 }
  ?>
 		<h1 class="text-center">Gestion de vos articles</h1>
-		<a href="article_create.php" class="btn btn-success btn-lg mt-4">Ajouter un article</a>
-			<table class="table mt-5 table-hover">
+		<a href="article_create.php" class="btn btn-primary btn-lg">Ajouter un article</a>
+			<table class="table mt-1 mb-1 bg-light">
 				<!-- début tableau affichage des articles -->
-				<thead class="thead-light">
 					<tr>
-						<th>ID article</th>
-						<th>ID catégorie</th>
-						<th>Nom de la catégorie</th>
-						<th>Nom article</th>
-						<th>Url</th>
-						<th>Contenu de l'article</th>
-						<th>Meta description</th>					
+						<th class="text-center">ID article</th>
+						<th class="text-center">ID catégorie</th>
+						<th class="text-center">Nom de la catégorie</th>
+						<th class="text-center">Nom article</th>
+						<th class="text-center">Url</th>
+						<th class="text-center">Contenu de l'article</th>
+						<th class="text-center">Meta description</th>					
 					</tr>
-				</thead>	
-				<?php foreach($affiche_categorie as $ligne_articles):?><!-- on affiche toutes les données de la table articles -->
-					<tr>		
-						<td><?= $ligne_articles['id_work']; ?></td>
-						<td><?= $ligne_articles['id_category']; ?></td>
-						<td><?= $ligne_articles['category_name']; ?></td>
-						<td><?= $ligne_articles['work_name']; ?></td>
-						<td><?= $ligne_articles['work_url']; ?></td>
-						<td><?= htmlspecialchars(substr($ligne_articles['content'], 0, 50)); ?></td>
-						<td><?= htmlspecialchars(substr($ligne_articles['meta_description'], 0, 50)); ?></td>
-						<!-- Le "?" dans le href ci-dessous permet de récupérer 'supprimer' avec la méthode GET-->
-						<td><a href="article_edit.php?modifier=<?= $ligne_articles['id_work']; ?>" class="btn btn-warning">Modifier</a></td>
-						<td><a href="?supprimer=<?= $ligne_articles['id_work'];?>" class="btn btn-danger" onclick="return confirm('Êtes vous sur de bien vouloir supprimer cet article?')">Supprimer</a></td>
-					</tr>	
-				<?php endforeach ;?>
+				<tbody class="table-dark">
+					<?php foreach($affiche_categorie as $ligne_articles):?><!-- on affiche toutes les données de la table articles -->
+						<tr>		
+							<td class="text-center"><?= $ligne_articles['id_work']; ?></td>
+							<td class="text-center"><?= $ligne_articles['id_category']; ?></td>
+							<td class="text-center"><?= $ligne_articles['category_name']; ?></td>
+							<td class="text-center"><?= $ligne_articles['work_name']; ?></td>
+							<td class="text-center"<?= $ligne_articles['work_url']; ?></td>
+							<td class="text-center"><?= htmlspecialchars(substr($ligne_articles['content'], 0, 50)); ?></td>
+							<td class="text-center"><?= htmlspecialchars(substr($ligne_articles['meta_description'], 0, 50)); ?></td>
+							<!-- Le "?" dans le href ci-dessous permet de récupérer 'supprimer' avec la méthode GET-->
+							<td><a href="article_edit.php?modifier=<?= $ligne_articles['id_work']; ?>" class="btn btn-info btn-lg btn-block">Modifier</a></td>
+							<td><a href="?supprimer=<?= $ligne_articles['id_work'];?>" class="btn btn-danger btn-lg btn-block" onclick="return confirm('Êtes vous sur de bien vouloir supprimer cet article?')">Supprimer</a></td>
+						</tr>	
+					<?php endforeach ;?>
+				</tbody>
 				<!-- fin tableau affichage articles -->
 			</table>
   			<ul class="pagination justify-content-center">
@@ -102,11 +102,11 @@ if(isset($msg_suppr)){
 		{
 			if($i == $startPage)
 			{
-				echo " <li class='page-item'><a class='page-link'>$i</a></li>";
+				echo " <li class='page-item active'><a class='page-link btn-lg'>$i</a></li>";
 			}
 			else
 			{
-				echo "<li class='page-item'><a href='index.php?p=$i' class='page-link'>$i</a>";
+				echo "<li class='page-item'><a href='index.php?p=$i' class='page-link btn-lg'>$i</a>";
 			}
 		}
 
