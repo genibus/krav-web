@@ -61,27 +61,27 @@ $description = "description";
 
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>
-			<h1>Gestion de vos articles</h1>			
-				<form action="" method="post" enctype="multipart/form-data" class="col s12">
-						<div class="input-field col s12">
-							<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
-						</div>
-					<div class="row">
+			<h1 class="text-center">Gestion de vos articles</h1>			
+				<form action="" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
+					</div>
+					<div class="form-group">
 						<label for="category">Nom catégorie</label>
-							<select name="category" class='browser-default' id="category" value="" selected="">
-								<option value="" disabled selected>Choisissez la catégorie</option>
-								<?php
-								foreach($requete_categorie as $nom_categorie):
-									$selected = '';
-								
-								if($nom_categorie['id_category'] == $_POST['id_category']){
-									$selected = 'selected ="selected"';
-								}
-								?>
-								<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
-								<option value="<?= $nom_categorie['id_category']; ?>" <?= $selected ;?> > <?= $nom_categorie['category_name'];?></option>
-							<?php endforeach ;?>
-							</select>
+						<select name="category" class="form-control" id="category" value="" selected="">
+							<option value="" disabled selected>Choisissez la catégorie</option>
+							<?php
+							foreach($requete_categorie as $nom_categorie):
+								$selected = '';
+							
+							if($nom_categorie['id_category'] == $_POST['id_category']){
+								$selected = 'selected ="selected"';
+							}
+							?>
+							<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
+							<option value="<?= $nom_categorie['id_category']; ?>" <?= $selected ;?> > <?= $nom_categorie['category_name'];?></option>
+						<?php endforeach ;?>
+						</select>
 					</div>
 
 									<!-- Récupération de la fonction input 			
@@ -89,37 +89,42 @@ include_once 'asset/part/header.php'; ?>
 					<div class="form-group">
 							<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
 					</div>
+
 					<div class="form-group">
 							<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>
 					</div>
+
 					<div class="form-group">
-							<?= baliseForm('meta_description', 'meta-description de l\'article','input', 'text'); ?>
+							<?= baliseForm('meta_description', 'Contenu de la balise meta description de l\'article','input', 'text'); ?>
 					</div> 
-				<div class="form-group">		
-					<div class="input-field col s6">		
-						<img src="../asset/img/imageUpload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="350">													
-					</div>						
-					<div class="form-group">
-						<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
+					<div class="row mt-5 mb-5">	
+						<div class="col-4">
+							<div class="form-group">		
+									<img src="../asset/img/imageUpload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="100%" class="img-upload">						
+							</div>	
+						</div>		
+						<div class="col-8">								<div class="form-group">
+									<span>Upload d'image</span>
+									<input type="file" name="image">
+								</div>
+								<div class="form-group">
+									<input class="form-control" type="text" value="<?= $_POST['nom_image'];?>">
+								</div>
+							<div class="form-group">
+								<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
+							</div>
+
+							</div>
 					</div>
-					<div class="form-group">
-						<div class="file-field">
-							<div class="btn btn-primary">
-								<span>Upload d'image</span>
-								<input type="file" name="image">
-							</div>
-							<div class="file-path-wrapper">
-								<input class="file-path validate" type="text" value="<?= $_POST['nom_image'];?>">
-							</div>
+					<div class="row mt-5 mb-5">
+						<div class="col-6">							
+							<a href="index.php" class="btn btn-primary btn-lg btn-block">Retour aux articles</a>
+						</div>
+						<div class="col-6">							
+							<input type="submit" value="Valider" class="btn btn-success btn-lg btn-block">
 						</div>
 					</div>
-					<div class="col s3">
-					<a href="index.php" class="waves-effect waves-light btn blue">Retour aux articles</a>
-					</div>
-					<div class="col s3">
-					<input type="submit" value="Valider" class="waves-effect waves-light btn green">
-					</div>
-				</div>	
+
 				</form>
 		</main>
 	</div>

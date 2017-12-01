@@ -17,6 +17,7 @@ if($_POST) // Si le formulaire est valide
 		// si l'un des champs est vide 
 	if(empty($nom) || empty($url) || empty($contenu)) // on affiche un message d'erreur
 	{
+		// ajouter récupération données déjà entrées
 		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'danger');
 		header('Location:article_create.php');
 		die();
@@ -56,7 +57,7 @@ $description = "description";
 
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>
-			<h1>Gestion de vos articles</h1>
+			<h1 class="text-center">Gestion de vos articles</h1>
 
 
 			<!-- Affichage du formulaire -->		

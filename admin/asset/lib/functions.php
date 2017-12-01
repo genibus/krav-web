@@ -22,7 +22,7 @@ function flash()
 	{
 		extract($_SESSION['flash']);
 		unset($_SESSION['flash']);
-		return "<div class='alert alert-$color'><p>$msg</p></div>";
+		return "<div class='alert alert-$color text-center'><p>$msg</p></div>";
 	}
 }
 

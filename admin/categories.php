@@ -83,11 +83,15 @@ else
 // TRAITEMENT POUR SUPPRIMER UNE CATEGORIE
 if(isset($_GET['supprimer']))
 {
-	$id_category = $_GET['supprimer'];
+	$id_category = $_GET['supprimer'];	
+	$req_flash = $db->query("SELECT * FROM categories WHERE id_category = $id_category");
+	$flash_fetch = $req_flash->fetch();
+	$category_name_delete = $flash_fetch['category_name'];
+	$id_category_delete = $flash_fetch['id_category'];
 	$requete_suppression = $db->prepare("DELETE FROM categories WHERE id_category = :id_category");
 	$requete_suppression->bindParam(':id_category', $id_category);
 	$requete_suppression->execute() or die(print_r($db->errorInfo()));	
-	setFlash('La catégorie ' . $name . ' a bien été supprimée' , 'primary');
+	setFlash("La catégorie <strong>$category_name_delete</strong> numéro <strong>$id_category_delete</strong> a bien été supprimée", "primary");
 	header('Location:categories.php?afficher');
 	die();
 }
@@ -98,7 +102,7 @@ $description = "description";
 
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>					
-		<h1> Gestion des catégories</h1>
+		<h1 class="text-center"> Gestion des catégories</h1>
 			<form action="" method="post">
 				<div class="form-group">
 					<?= baliseForm('category_name', 'Nom de la catégorie', 'input', 'text');?>

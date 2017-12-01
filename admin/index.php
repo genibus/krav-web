@@ -17,9 +17,8 @@ else
 {
 	$startPage = 1;
 }
-$liste_categorie = $db->query("SELECT * FROM works LEFT JOIN categories ON works.id_category = categories.id_category ORDER BY id_work DESC LIMIT " .(($startPage-1)*$perPage).",$perPage");
+$liste_categorie = $db->query("SELECT * FROM works LEFT JOIN categories ON works.id_category = categories.id_category ORDER BY id_work ASC LIMIT " .(($startPage-1)*$perPage).",$perPage");
 $affiche_categorie = $liste_categorie->fetchAll();
-
 
 
 
@@ -43,9 +42,14 @@ if($_POST) // Si le formulaire est validé
 if(isset($_GET['supprimer']))
 {
 	$id_work = $_GET['supprimer'];
+	$req_flash = $db->query("SELECT *FROM works WHERE id_work = $id_work");
+	$flash_fetch = $req_flash->fetch();
+	$work_name_delete = $flash_fetch['work_name'];
+	$id_work_delete = $flash_fetch['id_work'];
 	$requete_suppression = $db->prepare("DELETE FROM works WHERE id_work = :id_work");
 	$requete_suppression->bindParam(':id_work', $id_work);
 	$requete_suppression->execute() or die(print_r($db->errorInfo()));
+	setFlash("L'article <strong>$work_name_delete</strong> numéro <strong>$id_work_delete</strong> a bien été supprimé", "primary");
 	header('Location:index.php');
 	die();
 }
@@ -56,9 +60,13 @@ $title = "titre";
 $description = "description";
 
 // On inclut le fichier header.php
-include_once 'asset/part/header.php'; ?>
-		<h1>Gestion de vos articles</h1>
-		<a href="article_create.php" class="btn btn-success">Ajouter un article</a>
+include_once 'asset/part/header.php';
+if(isset($msg_suppr)){
+	var_dump($msg_suppr);
+}
+ ?>
+		<h1 class="text-center">Gestion de vos articles</h1>
+		<a href="article_create.php" class="btn btn-success btn-lg mt-4">Ajouter un article</a>
 			<table class="table mt-5 table-hover">
 				<!-- début tableau affichage des articles -->
 				<thead class="thead-light">
@@ -82,23 +90,23 @@ include_once 'asset/part/header.php'; ?>
 						<td><?= htmlspecialchars(substr($ligne_articles['content'], 0, 50)); ?></td>
 						<td><?= htmlspecialchars(substr($ligne_articles['meta_description'], 0, 50)); ?></td>
 						<!-- Le "?" dans le href ci-dessous permet de récupérer 'supprimer' avec la méthode GET-->
-						<td><a href="article_edit.php?modifier=<?= $ligne_articles['id_work']; ?>" class="">Modifier</a></td>
-						<td><a href="?supprimer=<?= $ligne_articles['id_work']; ?>" class="" onclick="return confirm('Êtes vous sur de bien vouloir supprimer cet article?')">Supprimer</a></td>
+						<td><a href="article_edit.php?modifier=<?= $ligne_articles['id_work']; ?>" class="btn btn-warning">Modifier</a></td>
+						<td><a href="?supprimer=<?= $ligne_articles['id_work'];?>" class="btn btn-danger" onclick="return confirm('Êtes vous sur de bien vouloir supprimer cet article?')">Supprimer</a></td>
 					</tr>	
 				<?php endforeach ;?>
 				<!-- fin tableau affichage articles -->
 			</table>
-				<ul class="pagination center">
+  			<ul class="pagination justify-content-center">
 	<?php 
 		for($i = 1 ; $i <= $nbPage ; $i++ )
 		{
 			if($i == $startPage)
 			{
-				echo " <li class=''><a>$i</a></li>";
+				echo " <li class='page-item'><a class='page-link'>$i</a></li>";
 			}
 			else
 			{
-				echo "<li class=''><a href='index.php?p=$i' class=''>$i</a>";
+				echo "<li class='page-item'><a href='index.php?p=$i' class='page-link'>$i</a>";
 			}
 		}
 
