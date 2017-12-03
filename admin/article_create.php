@@ -6,8 +6,7 @@ $ajout_btn = '<input type="submit" value="Ajouter un article" class="btn btn-suc
 // requete SELECT vers la table categories pour récupérer les informations en base de données
 $requete_categorie = $db->query('SELECT * FROM categories');
 
-if($_POST) // Si le formulaire est valide
-{
+if($_POST){  // Si le formulaire est valide
 	$nom = $_POST['work_name'];
 	$url = $_POST['work_url'];
 	$contenu = $_POST['content'];
@@ -15,8 +14,7 @@ if($_POST) // Si le formulaire est valide
 	$categorie = $_POST['category'];
 	
 		// si l'un des champs est vide 
-	if(empty($nom) || empty($url) || empty($contenu)) // on affiche un message d'erreur
-	{
+	if(empty($nom) || empty($url) || empty($contenu)){  // on affiche un message d'erreur
 		// ajouter récupération données déjà entrées
 		header('Location:article_create.php');
 		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'danger');
@@ -33,8 +31,7 @@ if($_POST) // Si le formulaire est valide
 	$req->bindParam(':meta_description', $meta_description, PDO::PARAM_STR);
 	$req->bindParam(':id_category', $categorie, PDO::PARAM_INT);
 	$db->beginTransaction();
-	if(!empty($_FILES['image']['tmp_name'])) 
-	{ 
+	if(!empty($_FILES['image']['tmp_name'])){ 
 		$req->execute() or die(print_r($db->errorInfo()));			
 		$id_work = $db->lastInsertId();
 		// insertion du traitement de l'ajout de l'image
@@ -43,9 +40,7 @@ if($_POST) // Si le formulaire est valide
 		header('Location:index.php');	
 		setFlash('L\'article <b>' . $nom . '</b> a été ajoutée', 'info');
 		die();
-	}
-	else
-	{
+	}else{
 		header('Location:article_create.php');	
 		setFlash('Une image est obligatoire pour ajouter un article', 'warning');
 		die();
@@ -57,7 +52,7 @@ $description = "description";
 
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>
-			<h1 class="text-center">Gestion de vos articles</h1>
+			<h1 class="text-center display-4">Créer votre article</h1>
 
 
 			<!-- Affichage du formulaire -->		
@@ -67,11 +62,10 @@ include_once 'asset/part/header.php'; ?>
 					<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
 				</div>
 				<div class="form-group">				
-					<label for="category">Nom catégorie</label>
+					<label for="category" class="font-weight-bold">Nom catégorie</label>
 					<select name="category" class="form-control" id="category" value="" selected="">
 						<option value="" disabled selected>Choisissez la catégorie</option>
-							<?php 
-							foreach($requete_categorie as $nom_categorie): ?>
+							<?php foreach($requete_categorie as $nom_categorie): ?>
 							<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
 						<option value="<?= $nom_categorie['id_category']; ?>"> <?= $nom_categorie['category_name']; ?> </option>
 							<?php endforeach ;?>
@@ -90,8 +84,8 @@ include_once 'asset/part/header.php'; ?>
 				</div>
 
 				<div class="form-group">
-					<span>Upload d'image</span>
-					<input type="file" name="image" class="form-control-file">
+					<label class="font-weight-bold label-file">Upload d'image : </label>
+					<input type="file" name="image" class="input-file form-control-file btn btn-info btn-lg btn-block">
 				</div>
 				
 				<div class="form-group">

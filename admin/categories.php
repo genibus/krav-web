@@ -1,22 +1,17 @@
 <?php include_once 'asset/lib/include.php';
 
 $liste_categories = $db->query('SELECT * FROM categories');
-if($_POST) // Si le formulaire est validé
-{
+if($_POST){ // Si le formulaire est validé
 	$name = htmlspecialchars($_POST['category_name']);
 	$url = htmlspecialchars($_POST['category_url']);	
 		// si l'un des deux champs est vide 
-	if(empty($name) || (empty($url))) // on affiche un message d'erreur selon le champ vide
-	{
+	if(empty($name) || (empty($url))){ // on affiche un message d'erreur selon le champ vide
 		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter une catégorie', 'danger');
 		header('Location:categories.php');
 		die();
-	}
-	else
-	{
+	}else{
 			// TRAITEMENT POUR MODIFIER UNE CATEGORIE
-		if(isset($_GET['modifier']))
-		{
+		if(isset($_GET['modifier'])){
 			$id_category = $_GET['modifier'];
 			$requete_modifier = $db->prepare("UPDATE categories SET category_name = :category_name, category_url = :category_url WHERE id_category = :id_category");
 			$requete_modifier->bindParam(':id_category', $id_category, PDO::PARAM_INT);
@@ -27,9 +22,7 @@ if($_POST) // Si le formulaire est validé
 			setFlash('La catégorie a été modifiée', 'primary');
 			die();	
 
-		}
-		else
-		{	
+		}else{	
 			// TRAITEMENT POUR AJOUTER UNE CATEGORIE
 			// on ajoute les données dans la table categories			
 			$req = $db->prepare('INSERT INTO categories SET category_name = :category_name, category_url = :category_url'); 
@@ -45,32 +38,26 @@ if($_POST) // Si le formulaire est validé
 }
 
 // TRAITEMENT POUR AFFICHER LA CATEGORIE A MODIFIER DANS LES CHAMPS INPUT
-if(isset($_GET['modifier']))
-{
+if(isset($_GET['modifier'])){
 
 	$id_category = $_GET['modifier'];
 	$categories_modifier = $db->query("SELECT * FROM categories WHERE id_category = $id_category");
 	// Si la catégorie est null	
-	if($categories_modifier->rowCount() == null)
-	{
+	if($categories_modifier->rowCount() == null){
 		setFlash('Oups, une erreur s\'est produite, l\'url saisie est incorrecte', 'warning');
 		header('Location:categories.php');
 		die();
 	}
-
 	$_POST = $categories_modifier->fetch();
-	$ajout_btn = '<input type="submit" value="Valider" class="btn btn-primary btn-lg">';
+	$ajout_btn = '<input type="submit" value="Valider" class="btn btn-primary ">';
 
-}
-else
-{
-	$ajout_btn = '<input type="submit" value="Ajouter une catégorie" class="btn btn-primary btn-lg">';
+}else{
+	$ajout_btn = '<input type="submit" value="Ajouter une catégorie" class="btn btn-primary ">';
 }	
 
 
 // TRAITEMENT POUR SUPPRIMER UNE CATEGORIE
-if(isset($_GET['supprimer']))
-{
+if(isset($_GET['supprimer'])){
 	$id_category = $_GET['supprimer'];	
 	$req_flash = $db->query("SELECT * FROM categories WHERE id_category = $id_category");
 	$flash_fetch = $req_flash->fetch();
@@ -90,7 +77,7 @@ $description = "description";
 
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>					
-		<h1 class="text-center"> Gestion des catégories</h1>
+		<h1 class="text-center display-4"> Gestion des catégories</h1>
 			<form action="" method="post">
 				<div class="form-group">
 					<?= baliseForm('category_name', 'Nom de la catégorie', 'input', 'text');?>
@@ -119,8 +106,8 @@ include_once 'asset/part/header.php'; ?>
 								<td scope="col" class="text-center"><?= $ligne_categories['id_category']; ?></td>
 								<td scope="col" class="text-center"><?= $ligne_categories['category_name']; ?></td>
 								<td scope="col" class="text-center"><?= $ligne_categories['category_url']; ?></td>
-								<td scope="col"><a href="?modifier=<?= $ligne_categories['id_category']; ?>" class="btn btn-info btn-lg btn-block" >modifier</a></td>
-								<td scope="col"><a href="?supprimer=<?= $ligne_categories['id_category']; ?>" class="btn btn-danger btn-lg btn-block" onclick="return confirm('Voulez-vous supprimer cette catégorie?')">Supprimer</a></td>
+								<td scope="col"><a href="?modifier=<?= $ligne_categories['id_category']; ?>" class="btn btn-info btn-block" >modifier</a></td>
+								<td scope="col"><a href="?supprimer=<?= $ligne_categories['id_category']; ?>" class="btn btn-danger btn-block" onclick="return confirm('Voulez-vous supprimer cette catégorie?')">Supprimer</a></td>
 						</tr>
 
 					<?php endforeach; ?>

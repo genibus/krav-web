@@ -6,12 +6,12 @@ function baliseForm($id, $nomLabel, $balise, $type = "")
 	$value = isset($_POST[$id]) ? $_POST[$id] : '';	
 	if($balise == 'textarea')
 	{		
-		return "<label for='$id'>$nomLabel</label>
+		return "<label for='$id' class='font-weight-bold'>$nomLabel</label>
 				<textarea name='$id' id='$id' class='form-control'>$value</textarea>";	
 	}
 	elseif($balise == 'input')
 	{		
-		return "<label for='$id'>$nomLabel</label>
+		return "<label for='$id' class='font-weight-bold'>$nomLabel</label>
 				<input type='$type' name='$id' id='$id' value='$value' class='form-control'>";	
 	}
 }

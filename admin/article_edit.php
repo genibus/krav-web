@@ -1,7 +1,6 @@
 <?php 
 include_once 'asset/lib/include.php';
-if($_POST) // Si le formulaire est validé
-{
+if($_POST){ // Si le formulaire est validé
 	$nom = $_POST['work_name'];
 	$url = $_POST['work_url'];
 	$contenu = $_POST['content'];
@@ -9,32 +8,31 @@ if($_POST) // Si le formulaire est validé
 	$categorie = $_POST['category'];
 	
 		// TRAITEMENT POUR MODIFIER UNE CATEGORIE
-	if(isset($_GET['modifier']))
-	{
+	if(isset($_GET['modifier'])){
 		// si l'un des champs est vide 
-	if(empty($nom) || empty($url) || empty($contenu))// on affiche un message d'erreur
-	{
-		setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'danger');
-		header('Location:article_edit.php');
+		if(empty($nom) || empty($url) || empty($contenu)){ // on affiche un message d'erreur
+			setFlash('Erreur de saisie, tous les champs doivent être remplis pour ajouter un article', 'danger');
+			header('Location:article_edit.php');
+			die();
+		}
+
+		$id_work = $_GET['modifier'];
+		$requete_modifier = $db->prepare("UPDATE works SET work_name = :work_name, work_url = :work_url, content = :content, meta_description = :meta_description,  id_category = :id_category WHERE id_work = :id_work");
+		$requete_modifier->bindParam(':id_work', $id_work, PDO::PARAM_INT);
+		$requete_modifier->bindParam(':work_name', $nom, PDO::PARAM_STR);
+		$requete_modifier->bindParam(':work_url', $url, PDO::PARAM_STR);
+		$requete_modifier->bindParam(':content', $contenu, PDO::PARAM_STR);	
+		$requete_modifier->bindParam(':meta_description', $meta_description, PDO::PARAM_STR);	
+		$requete_modifier->bindParam(':id_category', $categorie, PDO::PARAM_INT);
+		$db->beginTransaction();			
+		$requete_modifier->execute() or die(print_r($db->errorInfo()));
+			// insertion du traitement de la modification de l'image
+		include_once 'asset/lib/upload_file.php';		
+		$db->commit();
+		header('Location:index.php');
+		setFlash('L\'article a été modifiée', 'info');
 		die();
 	}
-	$id_work = $_GET['modifier'];
-	$requete_modifier = $db->prepare("UPDATE works SET work_name = :work_name, work_url = :work_url, content = :content, meta_description = :meta_description,  id_category = :id_category WHERE id_work = :id_work");
-	$requete_modifier->bindParam(':id_work', $id_work, PDO::PARAM_INT);
-	$requete_modifier->bindParam(':work_name', $nom, PDO::PARAM_STR);
-	$requete_modifier->bindParam(':work_url', $url, PDO::PARAM_STR);
-	$requete_modifier->bindParam(':content', $contenu, PDO::PARAM_STR);	
-	$requete_modifier->bindParam(':meta_description', $meta_description, PDO::PARAM_STR);	
-	$requete_modifier->bindParam(':id_category', $categorie, PDO::PARAM_INT);
-	$db->beginTransaction();			
-	$requete_modifier->execute() or die(print_r($db->errorInfo()));
-		// insertion du traitement de la modification de l'image
-	include_once 'asset/lib/upload_file.php';		
-	$db->commit();
-	header('Location:index.php');
-	setFlash('L\'article a été modifiée', 'info');
-	die();
-}
 
 }
 // requete SELECT vers la table works joint avec la table images pour récupérer les informations en base de données
@@ -48,8 +46,7 @@ $articles = $select_articles->fetchAll();
 $requete = $db->query('SELECT * FROM categories ORDER BY category_name');
 $requete_categorie = $requete->fetchAll();
 
-if($select_articles->rowCount() == 0)
-{
+if($select_articles->rowCount() == 0){
 	setFlash('L\'url saisie n\'existe pas', 'warning');
 	header('Location:article_edit.php');
 	die();
@@ -103,13 +100,14 @@ $description = "description";
 									<img src="../asset/img/imageUpload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="100%" class="img-upload">						
 							</div>	
 						</div>		
-						<div class="col-8">								<div class="form-group">
-									<span>Upload d'image</span>
-									<input type="file" name="image">
-								</div>
-								<div class="form-group">
-									<input class="form-control" type="text" value="<?= $_POST['nom_image'];?>">
-								</div>
+						<div class="col-8">							
+							<div class="form-group">
+								<span>Upload d'image</span>
+								<input type="file" name="image">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" value="<?= $_POST['nom_image'];?>">
+							</div>
 							<div class="form-group">
 								<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
 							</div>
