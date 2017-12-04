@@ -7,12 +7,20 @@ $result_category = $req_category->fetchAll();
 
 if(isset($_GET['filter'])){
 	$id_cat = $_GET['filter'];
-	$req_articles = $db->query("SELECT * FROM works LEFT JOIN images ON works.id_work = images.id_work WHERE id_category = $id_cat");
-	$result_articles = $req_articles->fetchAll();
+	$category_filtered = $db->query("SELECT * FROM categories WHERE id_category = $id_cat");
+	$category_count = $category_filtered->rowCount();
+	if($category_count == null ){
+		header('Location:index.php#portfolio');
+		die();
+	}else{
+		$req_articles = $db->query("SELECT * FROM works LEFT JOIN images ON works.id_work = images.id_work WHERE id_category = $id_cat");
+		$result_articles = $req_articles->fetchAll();
+	}
 }else{	
 	$req_articles = $db->query('SELECT * FROM works LEFT JOIN images ON works.id_work = images.id_work');
 	$result_articles = $req_articles->fetchAll();
 }
+
 
 
 include 'asset/partie/header_meta.php';
@@ -60,7 +68,7 @@ include 'asset/partie/header.php';
 				<?php foreach($result_category as $category) : ?>
 					<a href="?filter=<?= $category['id_category']; ?>#portfolio" class="p-2"><?= $category['category_name']; ?></a>
 				<?php endforeach; ?>
-				<a href="?#portfolio" class="p-2">All</a>
+				<a href="?#portfolio" class="p-2">Voir tous les articles</a>
 			</div>
 		</div>
 		<div class="row py-3">
