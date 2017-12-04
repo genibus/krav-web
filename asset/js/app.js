@@ -1,7 +1,3 @@
-$(function(){
-
-});
-
-function recaptchaCallback(){
-	document.getElementById('submitBtn').removeAttribute('disabled');
+function recaptchaCallback() {
+    document.getElementById('submitBtn').removeAttribute('disabled');
 }
