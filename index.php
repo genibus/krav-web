@@ -27,7 +27,7 @@ include 'asset/partie/header.php';
 			<div class="text-center my-auto">
 				<img src="asset/img/logo-krav.png" class="img-fluid w-50" alt="logo graphiste web">
 				<h1>UX/UI design</h1>
-				<a href="#" class="btn btn-outline-primary font-weight-bold mt-3">Voir mes créations</a>
+				<a href="#portfolio" class="btn btn-outline-primary font-weight-bold mt-3">Voir mes créations</a>
 			</div>
 		</div>
 	<article>
@@ -60,6 +60,7 @@ include 'asset/partie/header.php';
 				<?php foreach($result_category as $category) : ?>
 					<a href="?filter=<?= $category['id_category']; ?>#portfolio" class="p-2"><?= $category['category_name']; ?></a>
 				<?php endforeach; ?>
+				<a href="?#portfolio" class="p-2">All</a>
 			</div>
 		</div>
 		<div class="row py-3">
