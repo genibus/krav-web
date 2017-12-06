@@ -10,14 +10,13 @@ include 'asset/partie/header.php'; ?>
         <h1 class="txtcenter">Mentions Légales</h1>
         <article class="mw1140p center">
           <h2>1. Présentation de notre site web</h2>
+
             <p>Conformément à la loi n° 2004-2005 du 21 juin 2004 pour la confiance dans l'économie numérique, notre site web créé par Thomas Barreau, met à disposition du public les informations concernant notre entreprise.<br />
             Eventuellement modifiables, nous vous invitons donc à consulter nos mentions légales le plus souvent possible, de manière à en prendre connaissance fréquemment</p>
 
             <p>Le site <a href="http://www.krav-webdesign.fr">www.krav-webdesign.fr</a> appartient à Krav Webdesign<br />
             Personne physique ou morale, Krav Webdesign est responsable de la publication et de l'administration du site, et peut être contacté via le formulaire de contact du site.<br />
             Le site <a href="http://www.krav-webdesign.fr">www.krav-webdesign.fr</a> est hébergé par GANDI, dont le siège social est localisé à l'adresse suivante : 63-65 Boulevard Masséna, 75013 Paris.</p>
-
-            <p><i>Crédits : ces mentions légales ont étés générées et offertes via cet outil <a href="http://www.g7design.fr/outils-web/generateur-de-mentions-legales/" title="Générateur de mentions légales gratuit" target="_blank">http://www.g7design.fr/outils-web/generateur-de-mentions-legales/\</a>. Les éditeurs se déchargent de toutes responsabilités.</i><p>
 
             <h2>2. Conditions générales d’utilisation du site et des services proposés.</h2>
 
