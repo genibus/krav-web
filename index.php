@@ -77,9 +77,9 @@ include 'asset/partie/header.php';
 		<?php foreach($result_articles as $article) :?>
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-10">
-					<a href="#"> <!--LIEN VERS LA VUE -->
+			<a href="view.php?slug=<?= $article['work_url']?>"> <!--LIEN VERS LA VUE -->
 					<div class="card mb-4">
-						<div class="card-body" style="background: url('<?= 'caca' ?>')"> <!-- URL DE L'IMAGE LIE A L'ARTICLE -->
+						<div class="card-body" style="background: url('asset/img/imageUpload/<?= $article['nom_image'] ?>')"> <!-- URL DE L'IMAGE LIE A L'ARTICLE -->
 							<h2 class="text-center"><?=  $article['work_name'];?></h2>
 						</div>
 					</div>
