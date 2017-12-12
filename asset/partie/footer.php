@@ -23,5 +23,15 @@
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://use.fontawesome.com/7db2ee7987.js"></script>
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script type="text/javascript">
+  AOS.init({
+    offset: 200,
+    duration: 1000,
+    easing: 'ease-in-out',
+    delay: 150
+  });
+
+</script>
 </body>
 </html>

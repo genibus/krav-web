@@ -30,9 +30,9 @@ include 'asset/partie/header.php';
 	<article class="container">
 		<div class="d-flex flex-column text-light" style="height: 670px;">
 			<div class="text-center my-auto">
-				<h1 class="display-4 mb-3">Ensemble poussons vos projets au maximum de leurs capacités</h1>
-				<img src="asset/img/logo-krav.png" class="img-fluid mb-3" alt="logo graphiste web" style="max-width: 30%">
-				<h2>Designer</h2>
+				<h1 class="display-4 mb-3" data-aos="fade-up">Ensemble poussons vos projets au maximum de leurs capacités</h1>
+				<img src="asset/img/logo-krav.png" class="img-fluid mb-3" alt="logo graphiste web" style="max-width: 30%" data-aos="slide-right">
+				<h2 data-aos="slide-left">Designer</h2>
 				<a href="#portfolio" class="btn btn-outline-primary font-weight-bold mt-3">Voir mes créations</a>
 			</div>
 		</div>
@@ -41,17 +41,17 @@ include 'asset/partie/header.php';
 <section class="bg-dark">
 	<article class="container">
 		<div class="row text-center text-light py-4">
-			<div class="col-12 col-md-4">
+			<div class="col-12 col-md-4" data-aos="fade-up">
 				<img src="asset/img/graphic-design.png" alt="design" class="mb-2">
 				<h2 class="h3">Ergonomie</h2>
 				<p>Définissons ensemble une identité visuelle qui vous ressemble.</p>
 			</div>
-			<div class="col-12 col-md-4">
+			<div class="col-12 col-md-4" data-aos="fade-down">
 				<img src="asset/img/vector.png" alt="sketching" class="mb-2">
 				<h2 class="h3">Précision</h2>
 				<p>Mettez en avant vos évenements ou votre entreprise.</p>
 			</div>
-			<div class="col-12 col-md-4">
+			<div class="col-12 col-md-4" data-aos="fade-up">
 				<img src="asset/img/rocket.png" alt="palette" class="mb-2">
 				<h2 class="h3">Optimisation</h2>
 				<p>Nous travaillons aussi bien en ligne qu'en impression.</p>
@@ -75,12 +75,16 @@ include 'asset/partie/header.php';
 			</div>
 		</div>
 		<?php foreach($result_articles as $article) :?>
-		<div class="row justify-content-center">
+		<div class="row justify-content-center" data-aos="fade-down" data-aos-duration="700">
 			<div class="col-12 col-md-10">
 					<a href="#"> <!--LIEN VERS LA VUE -->
 					<div class="card mb-4">
-						<div class="card-body" style="background: url('<?= 'caca' ?>')"> <!-- URL DE L'IMAGE LIE A L'ARTICLE -->
-							<h2 class="text-center"><?=  $article['work_name'];?></h2>
+						<div class="card-body mx-auto" style="background: url('<?= 'caca' ?>');"> <!-- URL DE L'IMAGE LIE A L'ARTICLE -->
+							<div class="row align-items-center" style="height:250px;">
+								<div class="col">
+									<h2 class="text-center"><?=  $article['work_name'];?></h2>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -90,19 +94,6 @@ include 'asset/partie/header.php';
 		<?php endforeach; ?>
 	</article>
 </section>
-<section class="container-fluid">
-	<div class="row">
-	<article class="col-12 col-md-7 p-5">
-		<h2>Qui suis-je ?</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consequuntur modi expedita ut ratione mollitia minus, perferendis beatae ipsa tenetur! Est mollitia quibusdam autem sit magnam, nesciunt nulla, nostrum magni molestias iure explicabo optio suscipit et, veritatis quo ipsum temporibus?</p>
-		<a href="#" class="btn btn-outline-primary">En savoir plus</a>
-	</article>
-	<article class="col-12 col-md bg-primary">
-		<h2 class="text-light">Random image</h2>
-	</article>
-	</div>
-</section>
-
 <?php
 include 'asset/partie/footer.php';
 ?>

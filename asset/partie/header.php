@@ -2,6 +2,7 @@
 	<meta name="description" content="<?= $description; ?>"/>
 	<meta name="viewport" content="initial-scale=1"/>
 <link rel="stylesheet" href="asset/css/style.css">
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 <header>
