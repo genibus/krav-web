@@ -11,23 +11,17 @@
 	<link rel="stylesheet" href="../asset/css/style.css">
 </head>
 <body>
-	<div class="container-fluid">
-			<div class="row">
-				<header class="col-sm-3 col-md-2 d-none d-sm-block bg-dark sidebar">
-						<nav class="nav nav-pills flex-column nav-admin mt-5">
-							<div class="nav-item mt-5">
-								<a href="categories.php" class="nav-link text-center text-info nav-link-custom">Gestion des catégories</a>
-							</div>
-							<div class="nav-item mt-5">
-								<a href='index.php' class="nav-link text-center text-info nav-link-custom">Gestion des articles</a>
-							</div>
-							<div class="nav-item mt-5">
-								<a href='article_create.php' class="nav-link text-center text-info nav-link-custom">Créer un article</a>
-							</div>
-							<div class="nav-item mt-5">
-								<a href='logout.php' class="nav-link text-center btn btn-danger btn-block nav-link-custom">Se deconnecter</a>
-							</div>
-						</nav>
-				</header>
-	<main role="main" class="col-sm-9 ml-sm-auto col-md-10 pl-1 pr-1 pt-3">	
+<header>
+	<section class="container">
+		<div class="row">
+			<nav class="col-12 col-md-10 text-center">
+						<a href="categories.php" class="nav-link-custom text-dark p-2">Gestion des catégories</a>
+						<a href='index.php' class="nav-link-custom text-dark p-2">Gestion des articles</a>
+						<a href='article_create.php' class="nav-link-custom text-dark p-2">Créer un article</a>
+						<a href='logout.php' class="nav-link-custom text-dark p-2">Se deconnecter</a>
+				</nav>
+			</div>
+	</section>
+</header>
+	<main role="main" class="col-sm-12 ml-sm-auto col-md-12">	
 		<?= flash(); ?>		

@@ -14,11 +14,15 @@ if(isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p']<=$nbPage){
 }else{
 	$startPage = 1;
 }
-$liste_categorie = $db->query("SELECT * FROM works LEFT JOIN categories ON works.id_category = categories.id_category ORDER BY id_work ASC LIMIT " .(($startPage-1)*$perPage).",$perPage");
-$affiche_categorie = $liste_categorie->fetchAll();
 
-
-
+// TRAITEMENT FILTRE PHP
+if(isset($_GET['nom_categorie'])){
+	$liste_categorie = $db->query("SELECT * FROM works LEFT JOIN categories ON works.id_category = categories.id_category ORDER BY category_name  ASC LIMIT " .(($startPage-1)*$perPage).",$perPage");
+	$affiche_categorie = $liste_categorie->fetchAll();
+}else{	
+	$liste_categorie = $db->query("SELECT * FROM works LEFT JOIN categories ON works.id_category = categories.id_category ORDER BY id_work ASC LIMIT " .(($startPage-1)*$perPage).",$perPage");
+	$affiche_categorie = $liste_categorie->fetchAll();
+}
 if($_POST){ // Si le formulaire est validé
 	$nom = $_POST['work_name'];
 	$url = $_POST['work_url'];
@@ -47,7 +51,6 @@ if(isset($_GET['supprimer'])){
 	header('Location:index.php');
 	die();
 }
-
 
 // title et description
 $title = "titre";
