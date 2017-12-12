@@ -12,16 +12,14 @@
 </head>
 <body>
 <header>
-	<section class="container">
-		<div class="row">
-			<nav class="col-12 col-md-10 text-center">
-						<a href="categories.php" class="nav-link-custom text-dark p-2">Gestion des catégories</a>
-						<a href='index.php' class="nav-link-custom text-dark p-2">Gestion des articles</a>
-						<a href='article_create.php' class="nav-link-custom text-dark p-2">Créer un article</a>
-						<a href='logout.php' class="nav-link-custom text-dark p-2">Se deconnecter</a>
-				</nav>
-			</div>
-	</section>
+	<nav class="col-auto text-center nav navbar navbar-light bg-light">
+		<div class="container">
+			<a href='article_create.php' class="nav-link-custom text-dark p-2">Créer un article</a>
+			<a href='index.php' class="nav-link-custom text-dark p-2">Gestion des articles</a>
+			<a href="categories.php" class="nav-link-custom text-dark p-2">Gestion des catégories</a>
+			<a href='logout.php' class="nav-link-custom text-dark p-2">Se deconnecter</a>
+		</div>
+	</nav>
 </header>
-	<main role="main" class="col-sm-12 ml-sm-auto col-md-12">	
-		<?= flash(); ?>		
+<main role="main" class="">
+		<?= flash(); ?>

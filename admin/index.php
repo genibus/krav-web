@@ -19,7 +19,7 @@ if(isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p']<=$nbPage){
 if(isset($_GET['nom_categorie'])){
 	$liste_categorie = $db->query("SELECT * FROM works LEFT JOIN categories ON works.id_category = categories.id_category ORDER BY category_name  ASC LIMIT " .(($startPage-1)*$perPage).",$perPage");
 	$affiche_categorie = $liste_categorie->fetchAll();
-}else{	
+}else{
 	$liste_categorie = $db->query("SELECT * FROM works LEFT JOIN categories ON works.id_category = categories.id_category ORDER BY id_work ASC LIMIT " .(($startPage-1)*$perPage).",$perPage");
 	$affiche_categorie = $liste_categorie->fetchAll();
 }
@@ -58,6 +58,7 @@ $description = "description";
 
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>
+<div class="container">
 		<h1 class="text-center display-4">Gestion de vos articles</h1>
 		<a href="article_create.php" class="btn btn-primary">Ajouter un article</a>
 			<table class="table table-striped my-1 table-light table-hover">
