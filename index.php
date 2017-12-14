@@ -26,20 +26,16 @@ $description = "Web design, Paris et Île de France, refonte de site, création 
 include 'asset/partie/header.php';
 ?>
 
-<section class="bg-dark py-5" style="position: relative; min-height:100vh; width:100%;">
+<section class="bg-header py-5" style="">
 	<article class="container">
 		<div class="d-flex flex-column text-light" style="height: 670px;">
 			<div class="text-center my-auto">
 				<h1 class="display-4 mb-3" data-aos="fade-up">Ensemble poussons vos projets au maximum de leurs capacités</h1>
-				<img src="asset/img/logo-krav.png" class="img-fluid mb-3" alt="logo graphiste web" style="max-width: 30%" data-aos="slide-right">
-				<h2 data-aos="slide-left">Designer</h2>
-				<a href="#portfolio" class="btn btn-outline-primary font-weight-bold mt-3">Voir mes créations</a>
+				<img src="asset/img/logo-krav.png" class="img-fluid mb-3" alt="logo graphiste web" style="max-width: 30%" data-aos="fade-right">
+				<h2 data-aos="fade-left" class="h4 text-uppercase font-weight-light">Designer web <br> Paris</h2>
+				<a href="#portfolio" class="btn btn-outline-warning font-weight-bold mt-3 p-3">Voir mes créations</a>
 			</div>
 		</div>
-	<article>
-</section>
-<section class="bg-dark">
-	<article class="container">
 		<div class="row text-center text-light py-4">
 			<div class="col-12 col-md-4" data-aos="fade-up">
 				<img src="asset/img/graphic-design.png" alt="design" class="mb-2">
@@ -57,10 +53,11 @@ include 'asset/partie/header.php';
 				<p>Nous travaillons aussi bien en ligne qu'en impression.</p>
 			</div>
 		</div>
-	</article>
+	<article>
 </section>
 <section class="bg-light" id="portfolio">
 	<article class="container py-5">
+		<h1 class="text-center">Mes derniers projets</h1>
 		<div class="row justify-content-center py-2">
 			<div class="col-12 text-center">
 				<?php foreach($result_category as $category) : ?>
@@ -69,18 +66,13 @@ include 'asset/partie/header.php';
 				<a href="?#portfolio" class="p-2">Voir tous les articles</a>
 			</div>
 		</div>
-		<div class="row py-3">
-			<div class="col-12">
-				<h1 class="text-center">My work</h1>
-			</div>
-		</div>
 		<?php foreach($result_articles as $article) :?>
 		<div class="row justify-content-center" data-aos="fade-down" data-aos-duration="700">
 			<div class="col-12 col-md-10">
 			<a href="view.php?slug=<?= $article['work_url']?>"> <!--LIEN VERS LA VUE -->
 					<div class="card mb-4">
 						<div class="card-body mx-auto" style="background: url('asset/img/imageUpload/<?= $article['nom_image'] ?>');"> <!-- URL DE L'IMAGE LIE A L'ARTICLE -->
-							<div class="row align-items-center" style="height:250px;">
+							<div class="row align-items-center" style="height:300px;">
 								<div class="col">
 									<h2 class="text-center"><?=  $article['work_name'];?></h2>
 								</div>

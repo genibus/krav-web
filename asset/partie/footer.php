@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-md-10 text-center">
         <a href="<?= RACINE ?>" class="p-2">Accueil</a>
-        <a href="#portfolio" class="p-2">Portfolio</a>
+        <a href="<?= RACINE ?>#portfolio" class="p-2">Portfolio</a>
         <a href="<?= RACINE ?>about.php" class="p-2">Mon parcours</a>
         <a href="<?= RACINE ?>contact.php" class="p-2">Contact</a>
         <a href="<?= RACINE ?>mentions_legales.php" class="p-2">Mentions légales</a>
@@ -31,7 +31,6 @@
     easing: 'ease-in-out',
     delay: 150
   });
-
 </script>
 </body>
 </html>

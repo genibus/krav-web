@@ -4,7 +4,7 @@ $title = "Krav Webdesign : mentions légales du site";
 $description = "Consulter les mentions légales, droits d'auteur, propriétés Krav Web Design, propriété intellectuelle, droits d'auteur";
 include 'asset/partie/header.php'; ?>
 <section class="bg-light">
-<article class="container pt-5 bg-white">
+<article class="container pt-5 bg-white mt-3">
     <div class="row">
       <div class="col-12 bg-white">
         <h1 class="txtcenter">Mentions Légales</h1>
