@@ -52,51 +52,53 @@ $description = "description";
 
 // On inclut le fichier header.php
 include_once 'asset/part/header.php'; ?>
-			<h1 class="text-center display-4">Créer votre article</h1>
+<div class="container">
+	<h1 class="text-center display-4">Créer votre article</h1>
 
 
-			<!-- Affichage du formulaire -->		
-			<form action="" method="post" enctype="multipart/form-data">
+	<!-- Affichage du formulaire -->		
+	<form action="" method="post" enctype="multipart/form-data">
 
-				<div class="form-group">
-					<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
-				</div>
-				<div class="form-group">				
-					<label for="category" class="font-weight-bold">Nom catégorie</label>
-					<select name="category" class="form-control" id="category" value="" selected="">
-						<option value="" disabled selected>Choisissez la catégorie</option>
-							<?php foreach($requete_categorie as $nom_categorie): ?>
-							<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
-						<option value="<?= $nom_categorie['id_category']; ?>"> <?= $nom_categorie['category_name']; ?> </option>
-							<?php endforeach ;?>
-					</select>
-				</div>
+		<div class="form-group">
+			<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
+		</div>
+		<div class="form-group">				
+			<label for="category" class="font-weight-bold">Nom catégorie</label>
+			<select name="category" class="form-control" id="category" value="" selected="">
+				<option value="" disabled selected>Choisissez la catégorie</option>
+					<?php foreach($requete_categorie as $nom_categorie): ?>
+					<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
+				<option value="<?= $nom_categorie['id_category']; ?>"> <?= $nom_categorie['category_name']; ?> </option>
+					<?php endforeach ;?>
+			</select>
+		</div>
 
-				<!-- Récupération de la fonction baliseForm -->
-				<div class="form-group">
-					<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
-				</div>
-				<div class="form-group">
-					<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>
-				</div>
-				<div class="form-group">
-					<?= baliseForm('meta_description', 'meta description de l\'article', 'input', 'text'); ?>
-				</div>
+		<!-- Récupération de la fonction baliseForm -->
+		<div class="form-group">
+			<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
+		</div>
+		<div class="form-group">
+			<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>
+		</div>
+		<div class="form-group">
+			<?= baliseForm('meta_description', 'meta description de l\'article', 'input', 'text'); ?>
+		</div>
 
-				<div class="form-group">
-					<label class="font-weight-bold label-file">Upload d'image : </label>
-					<input type="file" name="image" class="input-file form-control-file btn btn-info btn-lg btn-block">
-				</div>
-				
-				<div class="form-group">
-					<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
-				</div>
+		<div class="form-group">
+			<label class="font-weight-bold label-file">Upload d'image : </label>
+			<input type="file" name="image" class="input-file form-control-file btn btn-info btn-lg btn-block">
+		</div>
+		
+		<div class="form-group">
+			<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
+		</div>
 
-				<div class="form-group">
-					<?= $ajout_btn; ?>
-				</div>
-			</form>
-		</main>
-	</div>
+		<div class="form-group">
+			<?= $ajout_btn; ?>
+		</div>
+	</form>
+</div>
+</main>
+</div>
 </div>
 <?php include_once 'asset/part/footer_article.php';

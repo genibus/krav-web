@@ -58,73 +58,75 @@ $description = "description";
 
 // On inclut le fichier header.php
 	include_once 'asset/part/header.php'; ?>
-			<h1 class="text-center">Gestion de vos articles</h1>			
-				<form action="" method="post" enctype="multipart/form-data">
-					<div class="form-group">
-						<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
-					</div>
-					<div class="form-group">
-						<label for="category">Nom catégorie</label>
-						<select name="category" class="form-control" id="category" value="" selected="">
-							<option value="" disabled selected>Choisissez la catégorie</option>
-							<?php
-							foreach($requete_categorie as $nom_categorie):
-								$selected = '';
-							
-							if($nom_categorie['id_category'] == $_POST['id_category']){
-								$selected = 'selected ="selected"';
-							}
-							?>
-							<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
-							<option value="<?= $nom_categorie['id_category']; ?>" <?= $selected ;?> > <?= $nom_categorie['category_name'];?></option>
-						<?php endforeach ;?>
-						</select>
-					</div>
+	<div class="container">
+		<h1 class="text-center">Gestion de vos articles</h1>			
+			<form action="" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<?= baliseForm('work_name', 'Nom de l\'article', 'input', 'text');?>
+				</div>
+				<div class="form-group">
+					<label for="category">Nom catégorie</label>
+					<select name="category" class="form-control" id="category" value="" selected="">
+						<option value="" disabled selected>Choisissez la catégorie</option>
+						<?php
+						foreach($requete_categorie as $nom_categorie):
+							$selected = '';
+						
+						if($nom_categorie['id_category'] == $_POST['id_category']){
+							$selected = 'selected ="selected"';
+						}
+						?>
+						<!-- On récupère la variable définit au début de la page pour ajouter la value et le contenu de la balise option de façon dynamique -->
+						<option value="<?= $nom_categorie['id_category']; ?>" <?= $selected ;?> > <?= $nom_categorie['category_name'];?></option>
+					<?php endforeach ;?>
+					</select>
+				</div>
 
-									<!-- Récupération de la fonction input 			
-									on ajoute chaque donnée dans l'input -->
-					<div class="form-group">
-							<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
-					</div>
+								<!-- Récupération de la fonction input 			
+								on ajoute chaque donnée dans l'input -->
+				<div class="form-group">
+						<?= baliseForm('work_url', 'Url de l\'article', 'input', 'text'); ?>
+				</div>
 
-					<div class="form-group">
-							<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>
-					</div>
+				<div class="form-group">
+						<?= baliseForm('content', 'Contenu de l\'article', 'textarea'); ?>
+				</div>
 
-					<div class="form-group">
-							<?= baliseForm('meta_description', 'Contenu de la balise meta description de l\'article','input', 'text'); ?>
-					</div> 
-					<div class="row mt-5 mb-5">	
-						<div class="col-4">
-							<div class="form-group">		
-									<img src="../asset/img/imageUpload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="100%" class="img-upload">						
-							</div>	
-						</div>		
-						<div class="col-8">							
-							<div class="form-group">
-								<span>Upload d'image</span>
-								<input type="file" name="image">
-							</div>
-							<div class="form-group">
-								<input class="form-control" type="text" value="<?= $_POST['nom_image'];?>">
-							</div>
-							<div class="form-group">
-								<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
-							</div>
-
-							</div>
-					</div>
-					<div class="row mt-5 mb-5">
-						<div class="col-6">							
-							<a href="index.php" class="btn btn-primary btn-lg btn-block">Retour aux articles</a>
+				<div class="form-group">
+						<?= baliseForm('meta_description', 'Contenu de la balise meta description de l\'article','input', 'text'); ?>
+				</div> 
+				<div class="row mt-5 mb-5">	
+					<div class="col-4">
+						<div class="form-group">		
+								<img src="../asset/img/imageUpload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="100%" class="img-upload">						
+						</div>	
+					</div>		
+					<div class="col-8">							
+						<div class="form-group">
+							<span>Upload d'image</span>
+							<input type="file" name="image">
 						</div>
-						<div class="col-6">							
-							<input type="submit" value="Valider" class="btn btn-success btn-lg btn-block">
+						<div class="form-group">
+							<input class="form-control" type="text" value="<?= $_POST['nom_image'];?>">
 						</div>
-					</div>
+						<div class="form-group">
+							<?= baliseForm('alt', 'descriptif de l\'image', 'input', 'text'); ?>
+						</div>
 
-				</form>
-		</main>
-	</div>
+						</div>
+				</div>
+				<div class="row mt-5 mb-5">
+					<div class="col-6">							
+						<a href="index.php" class="btn btn-primary btn-lg btn-block">Retour aux articles</a>
+					</div>
+					<div class="col-6">							
+						<input type="submit" value="Valider" class="btn btn-success btn-lg btn-block">
+					</div>
+				</div>
+
+			</form>
+		</div>
+</main>
+</div>
 </div>
 <?php include_once 'asset/part/footer_article.php';

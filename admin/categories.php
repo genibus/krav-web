@@ -76,7 +76,8 @@ $title = "titre";
 $description = "description";
 
 // On inclut le fichier header.php
-include_once 'asset/part/header.php'; ?>					
+include_once 'asset/part/header.php'; ?>
+<div class="container">					
 		<h1 class="text-center display-4"> Gestion des catégories</h1>
 			<form action="" method="post">
 				<div class="form-group">
@@ -93,13 +94,13 @@ include_once 'asset/part/header.php'; ?>
 					$affiche_categories = $liste_categories->fetchAll(); 
 				?>	
 				<table class="table mt-1 mb-1 bg-light">
-					<!-- début tableau affichage catégories -->
-						<tr>
-							<th scope="col" class="text-center">ID de la catégorie</th>
-							<th scope="col" class="text-center">Nom de la catégorie</th>
-							<th scope="col" class="text-center">Nom de l'url de la catégorie</th>
-						</tr>
-							<tbody class="table-dark">	
+				<!-- début tableau affichage catégories -->
+					<tr>
+						<th scope="col" class="text-center">ID de la catégorie</th>
+						<th scope="col" class="text-center">Nom de la catégorie</th>
+						<th scope="col" class="text-center">Nom de l'url de la catégorie</th>
+					</tr>
+					<tbody class="table-dark">	
 					<?php foreach($affiche_categories as $ligne_categories):?>
 						<!-- on affiche toutes les données de la table catégories -->
 						<tr>	
@@ -112,8 +113,9 @@ include_once 'asset/part/header.php'; ?>
 
 					<?php endforeach; ?>
 
-							</tbody>	
+					</tbody>	
 				</table>
+			</div>
 		</main>
 	</div>
 </div>
