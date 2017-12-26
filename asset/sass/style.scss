@@ -32,3 +32,7 @@ $enable-gradients: true;
   background: url('/asset/img/bg-header.jpg');
   background-size: cover;
 }
+
+img {
+  @extend .img-fluid
+}
