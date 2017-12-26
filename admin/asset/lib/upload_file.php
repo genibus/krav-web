@@ -19,7 +19,7 @@ if(!empty($_FILES))
 				$insert->bindParam(':id_work',$id_work, PDO::PARAM_INT);
 				$insert->bindParam(':alt', $alt, PDO::PARAM_STR);		
 				$insert->execute() or die(print_r($db->errorInfo()));
-				move_uploaded_file($img['tmp_name'], "../asset/img/imageUpload/".$img['name']); //Déplacement renommage de l'image
+				move_uploaded_file($img['tmp_name'], "../asset/img/upload/".$img['name']); //Déplacement renommage de l'image
 				$reussi_upload = "Votre fichier à été transféré";
 			}
 			elseif(isset($requete_modifier))
@@ -31,7 +31,7 @@ if(!empty($_FILES))
 				$insert->bindParam(':alt', $alt, PDO::PARAM_STR);		
 				$insert->bindParam(':id_work', $id_work, PDO::PARAM_INT);		
 				$insert->execute() or die(print_r($db->errorInfo()));
-				move_uploaded_file($img['tmp_name'], "../asset/img/imageUpload/".$img['name']); //Déplacement renommage de l'image
+				move_uploaded_file($img['tmp_name'], "../asset/img/upload/".$img['name']); //Déplacement renommage de l'image
 				$reussi_upload = "Votre fichier à été transféré";
 			}		
 		}

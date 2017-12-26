@@ -14,7 +14,7 @@ $requete_article = $req->fetchAll();
 </article>
 <div class="flex-container grid-2 gallery">
 <?php foreach ($requete_article as $article):?>
-	<article class="container-article" style="background-image: url(asset/img/imageUpload/<?= $article['nom_image']; ?>)">
+	<article class="container-article" style="background-image: url(asset/img/upload/<?= $article['nom_image']; ?>)">
 		<a href="realisation/<?= $article['work_url']; ?>">
 		<div class="overlay">
 		    	<h3 class="txtcenter"> <?= $article['work_name'] ;?> </h3>

@@ -98,7 +98,7 @@ $description = "description";
 				<div class="row mt-5 mb-5">	
 					<div class="col-4">
 						<div class="form-group">		
-								<img src="../asset/img/imageUpload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="100%" class="img-upload">						
+								<img src="../asset/img/upload/<?=$_POST['nom_image']; ?>" alt="<?=$_POST['alt']; ?>" width="100%" class="img-upload">						
 						</div>	
 					</div>		
 					<div class="col-8">							

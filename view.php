@@ -25,7 +25,7 @@ include 'asset/partie/header.php';
 		<div class="row justify-content-center py-2">
 		<div class="col-12 text-center">	
 		<?php foreach ($requete_article as $article): ?>
-			<div class="card-body" style="background-image: url(<?= RACINE ?>asset/img/imageUpload/<?= $article['nom_image']; ?>);"></div>
+			<div class="card-body" style="background-image: url(<?= RACINE ?>asset/img/upload/<?= $article['nom_image']; ?>);"></div>
 			<article class="row justify-content-center">
 				<div class="col-12 col-md-10">
 					<?= $article['content']; ?>   

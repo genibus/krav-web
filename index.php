@@ -71,7 +71,7 @@ include 'asset/partie/header.php';
 			<div class="col-12 col-md-10">
 			<a href="view.php?slug=<?= $article['work_url']?>"> <!--LIEN VERS LA VUE -->
 					<div class="card mb-4">
-						<div class="card-body mx-auto" style="background: url('asset/img/imageUpload/<?= $article['nom_image'] ?>');"> <!-- URL DE L'IMAGE LIE A L'ARTICLE -->
+						<div class="card-body mx-auto" style="background: url('asset/img/upload/<?= $article['nom_image'] ?>');"> <!-- URL DE L'IMAGE LIE A L'ARTICLE -->
 							<div class="row align-items-center" style="height:300px;">
 								<div class="col">
 									<h2 class="text-center"><?=  $article['work_name'];?></h2>
