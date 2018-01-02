@@ -1,27 +1,17 @@
 <footer class="bg-dark">
   <article class="container py-5">
-    <div class="row text-light py-5">
-      <div class="col-12 col-md-8">
-        <p class="display-3">Envie de discuter</p>
-        <p class="h5">N'hésitez pas à m'envoyer un message</p>
-      </div>
-      <div class="col-12 col-md">
-        <p class="text-uppercase h6"><small>Dites moi bonjour</small></p>
-        <p class="font-weight-bold h3">Monmail@mail.com</p>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 text-center">
-        <a href="<?= RACINE ?>" class="p-2">Accueil</a>
-        <a href="<?= RACINE ?>#portfolio" class="p-2">Portfolio</a>
-        <a href="<?= RACINE ?>about.php" class="p-2">Mon parcours</a>
-        <a href="<?= RACINE ?>contact.php" class="p-2">Contact</a>
-        <a href="<?= RACINE ?>mentions_legales.php" class="p-2">Mentions légales</a>
+    <div class="row text-light py-2">
+      <div class="col-12">
+        <p class="display-4">Un projet en tête ?</p>
+        <p class="h5">Contactez moi</p>
+        <p class="font-weight-bold h3 mb-0">tmd2.pro@gmail.com</p>
       </div>
     </div>
   </article>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/7db2ee7987.js"></script>
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 <script type="text/javascript">

@@ -32,7 +32,7 @@ include 'asset/partie/header.php';
 			<div class="text-center my-auto">
 				<h1 class="display-4 mb-3" data-aos="fade-up">Ensemble poussons vos projets au maximum de leurs capacités</h1>
 				<img src="asset/img/logo-krav.png" class="img-fluid mb-3" alt="logo graphiste web" style="max-width: 30%" data-aos="fade-right">
-				<h2 data-aos="fade-left" class="h4 text-uppercase font-weight-light">Designer web <br> Paris</h2>
+				<h2 data-aos="fade-down" class="h4 text-uppercase font-weight-light">Designer web <br> Paris</h2>
 				<a href="#portfolio" class="btn btn-outline-warning font-weight-bold mt-3 p-3">Voir mes créations</a>
 			</div>
 		</div>
@@ -69,10 +69,10 @@ include 'asset/partie/header.php';
 		<?php foreach($result_articles as $article) :?>
 		<div class="row justify-content-center" data-aos="fade-down" data-aos-duration="700">
 			<div class="col-12 col-md-10">
-			<a href="view.php?slug=<?= $article['work_url']?>" class="text-warning"> <!--LIEN VERS LA VUE -->
+			<a href="view.php?slug=<?= $article['work_url']?>" class="text-light text-decoration-n">
 					<div class="card mb-4">
-						<div class="card-body bg-img" style="background: url('asset/img/upload/<?= $article['nom_image'] ?>'); background-size: cover;"> <!-- URL DE L'IMAGE LIE A L'ARTICLE -->
-							<div class="row align-items-center" style="height:300px;">
+						<div class="card-body bg-img" style="background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url('asset/img/upload/<?= $article['nom_image'] ?>'); background-size: cover;">
+							<div class="row align-items-center" style="height:270px;">
 								<div class="col">
 									<h2 class="text-center text-uppercase font-weight-bold"><?=  $article['work_name'];?></h2>
 								</div>

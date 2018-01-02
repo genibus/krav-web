@@ -5,10 +5,10 @@ $description = "Web design, Paris et Île de France, refonte de site, création 
 include 'asset/partie/header.php'; ?>
 
 <section class="bg-dark text-light py-5">
-	<article class="container">
+	<article class="container py-5">
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-7">
-				<h2 class="display-4 font-weight-bold mb-5">Besoin de me parler ?</h2>
+				<h2 class="display-4 font-weight-bold mb-4">Besoin d'un designer pour votre site web ?</h2>
 				<p class="h4 mb-4">Pas de problème je réponds à toutes vos questions !</p>
 				<!-- <i class="fa fa-times fa-2x close-contact" aria-hidden="true"></i> -->
 				<!-- start form -->
@@ -33,7 +33,11 @@ include 'asset/partie/header.php'; ?>
 		</div>
 	</article>
 </section>
-
+<style media="screen">
+	body {
+		background-color: #343a40;
+	}
+</style>
 <script src='asset/js/app.js'></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
