@@ -3,24 +3,23 @@ include 'asset/partie/header_meta.php';
 $title = "A propos";
 $description = "A propos de Matthieu Tabarin";
 include 'asset/partie/header.php'; ?>
-<section class="bg-dark py-5" style="height: 70vh;">
-  <article class="container">
-    <h1 class="display-4 text-light text-center">Un nouveau challenger dans l'arène</h1>
+<section class="bg-dark py-5">
+  <article class="container py-5">
+    <h1 class="display-4 text-light text-center mb-3">Un nouveau challenger dans l'arène</h1>
     <div class="row justify-content-center">
       <div class="col-7">
-        <img src="" alt="photo de ma tronche">
       </div>
-      <div class="col text-light h5">
+      <div class="col text-light h5 font-weight-light">
         <p>
-          Je m'appelle Eric Huguenin, je suis développeur front-end à Paris. J'aide les agences et les startups à concevoir et développer des expériences interactives.
+          Je m'appelle Matthieu Tabarin, je suis UX/UI designer à Paris. Je collabore avec les agences et les startups pour les aider à concevoir l'expérience de leurs utilisateurs, développer leurs sites web et définir leur identité visuelle.
         </p>
         <p>
-          Développeur front-end depuis 5ans, je n'ai pour but que de satisfaire mes clients en créant des sites interactifs dignes de ce nom. L'expérience utilisateur et la qualité sont les maîtres mots pour réaliser vos projets.
+          Developpeur & Designer depuis 3ans, mon but est de créer des sites ergonomique et fonctionnel. J'établie une relation de confiance avec mes clients. Rapidité, efficacité et satisfaction sont les moteurs de notre futur collaboration.
         </p>
       </div>
     </div>
     <h2>Mes services</h2>
-    <div class="row">
+    <div class="row text-light">
       <div class="col-4">
         <h3 class="h4">Ergonomie</h3>
       </div>
@@ -43,18 +42,19 @@ include 'asset/partie/header.php'; ?>
   </article>
 </section>
 <section>
-  <article class="container">
-    <div class="row">
-      <div class="col-6">
-          <h2 class="mx-auto">Mes compétences</h2>
-      </div>
-      <div class="col-6">
+  <article class="container py-5">
+    <h2 class="mb-5 text-center">Mes compétences</h2>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-auto">
         <p>PAO <br> <small> Photoshop / Illustrator/ Indesign</small></p>
         <p>HTML <br> <small>Haml / Blade</small></p>
         <p>Préprocesseurs <br> <small>Sass</small></p>
+        <p>Css frameworks <br> <small>Bootstrap / Materialize / Foundation</small></p>
+      </div>
+      <div class="col-12 col-md-auto">
+        <p>Développement <br> <small>PHP</small></p>
         <p>Javascript <br> <small>Jquery</small></p>
         <p>CMS <br> <small>Wordpress / Format</small></p>
-        <p>Css frameworks <br> <small>Bootstrap / Materialize / Foundation</small></p>
         <p>Versionning <br> <small>Git (Github)</small></p>
       </div>
     </div>
@@ -67,23 +67,23 @@ include 'asset/partie/header.php'; ?>
       <div class="col-5">
         <ul class="list-unstyled">
           <li>
-            <h3 class="h4 font-weight-bold">Tracktor</h3>
+            <h3 class="h4 font-weight-bold text-warning">Tracktor</h3>
             <p>UX designer<br> <small class="text-muted">2017 - aujourd'hui</small></p>
           </li>
           <li>
-            <h3 class="h4 font-weight-bold">Universal Medica Group</h3>
+            <h3 class="h4 font-weight-bold text-warning">Universal Medica Group</h3>
             <p>Web designer <br> <small class="text-muted">2016</small></p>
           </li>
           <li>
-            <h3 class="h4 font-weight-bold">Alliance & GO</h3>
+            <h3 class="h4 font-weight-bold text-warning">Alliance & GO</h3>
             <p>Web designer (freelance) <br> <small class="text-muted">2016</small></p>
           </li>
           <li>
-            <h3 class="h4 font-weight-bold">Nos Assiettes Notre Avenir</h3>
+            <h3 class="h4 font-weight-bold text-warning">Nos Assiettes Notre Avenir</h3>
             <p>Infographiste<br> <small class="text-muted">2015</small></p>
           </li>
           <li>
-            <h3 class="h4 font-weight-bold">Fédération Française de Handball</h3>
+            <h3 class="h4 font-weight-bold text-warning">Fédération Française de Handball</h3>
             <p>Coach sportif / Arbitre Officiel (handball) <br> <small class="text-muted">2011 - 2015</small></p>
           </li>
         </ul>

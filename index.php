@@ -40,17 +40,17 @@ include 'asset/partie/header.php';
 			<div class="col-12 col-md-4" data-aos="fade-up">
 				<img src="asset/img/graphic-design.png" alt="design" class="mb-2">
 				<h2 class="h3">Ergonomie</h2>
-				<p>Définissons ensemble une identité visuelle qui vous ressemble.</p>
+				<p> Réfléxion et conception de votre expérience utilisateur</p>
 			</div>
 			<div class="col-12 col-md-4" data-aos="fade-down">
 				<img src="asset/img/vector.png" alt="sketching" class="mb-2">
 				<h2 class="h3">Précision</h2>
-				<p>Mettez en avant vos évenements ou votre entreprise.</p>
+				<p>Des conseils adaptés et personnalisés à votre projet</p>
 			</div>
 			<div class="col-12 col-md-4" data-aos="fade-up">
 				<img src="asset/img/rocket.png" alt="palette" class="mb-2">
 				<h2 class="h3">Optimisation</h2>
-				<p>Nous travaillons aussi bien en ligne qu'en impression.</p>
+				<p>Une application pensée pour durer dans le temps</p>
 			</div>
 		</div>
 	<article>
