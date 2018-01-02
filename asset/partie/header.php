@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="asset/css/style.css">
 <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="asset/img/favicon-32x32.png">
 </head>
 <body>
 <header>
