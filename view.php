@@ -18,7 +18,7 @@ $description = $article['meta_description'];
 endforeach;
 include 'asset/partie/header.php';
 ?>
-<section class="bg-light">
+<section>
 	<?php foreach ($requete_article as $article): ?>
 		<div class="" style="background-image: url(<?= RACINE ?>asset/img/upload/<?= $article['nom_image']; ?>); background-size: cover; background-position:center; height:500px;"></div>
 		<article class="container bg-white py-5">
