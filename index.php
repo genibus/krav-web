@@ -69,12 +69,12 @@ include 'asset/partie/header.php';
 		<?php foreach($result_articles as $article) :?>
 		<div class="row justify-content-center" data-aos="fade-down" data-aos-duration="700">
 			<div class="col-12 col-md-10">
-			<a href="view.php?slug=<?= $article['work_url']?>" class="text-light text-decoration-n">
+			<a href="view.php?slug=<?= $article['work_url']?>" class="text-white text-decoration-n">
 					<div class="card mb-4">
 						<div class="card-body bg-img" style="background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url('asset/img/upload/<?= $article['nom_image'] ?>'); background-size: cover; background-position: center;">
-							<div class="row align-items-center" style="height:270px;">
+							<div class="row" style="height:270px;">
 								<div class="col">
-									<h2 class="text-center text-uppercase font-weight-bold"><?=  $article['work_name'];?></h2>
+									<h2 class="text font-weight-bold"><?=  $article['work_name'];?></h2>
 								</div>
 							</div>
 						</div>
